@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aqidah — Kurikulum</title>
+<style>
+:root{--hijau:#14532d;--hijau2:#166534;--emas:#b45309;--latar:#f7f5ef;--kartu:#fff;--teks:#1c1917;--redup:#78716c;--garis:#e7e0cf}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--latar);color:var(--teks)}
+.bungkus{display:flex;min-height:100vh}
+aside{width:290px;flex:0 0 290px;background:var(--hijau);color:#fef9ec;padding:16px 12px;position:sticky;top:0;height:100vh;overflow:auto}
+aside a{display:block;color:#fef9ec;text-decoration:none;padding:8px 10px;border-radius:8px;font-size:14px}
+aside a:hover{background:rgba(255,255,255,.12)}aside a.aktif{background:var(--emas);color:#fff;font-weight:600}
+aside .grup{margin:14px 6px 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#d6cfae}
+aside .subgrup{margin:8px 6px 2px;font-size:11px;color:#a7c4ae;padding-left:8px}
+aside details.grupbox>summary{margin:14px 6px 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#d6cfae;cursor:pointer;list-style:none;padding:4px 0}
+aside details.grupbox>summary::-webkit-details-marker{display:none}
+aside details.grupbox>summary::before{content:'▸ '}
+aside details.grupbox[open]>summary::before{content:'▾ '}
+aside details.grupbox details.grupbox>summary{margin:6px 6px 2px 16px;text-transform:none;letter-spacing:0;font-size:12.5px}
+aside details.grupbox details.grupbox a.mapel{padding-left:38px}
+aside a.mapel{padding-left:22px;font-size:13.5px}
+main{flex:1;padding:24px 30px;max-width:1020px;min-width:0}
+.kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:12px;padding:16px 20px;margin:14px 0}
+.card{background:var(--kartu);border:1px solid var(--garis);border-radius:12px;padding:16px 20px;margin:14px 0;box-shadow:0 1px 3px rgba(28,25,23,.06)}
+.card h3{margin-top:2px}
+main a{color:var(--hijau2)}
+.content-list{margin:8px 0;padding-left:20px}
+.content-list li{margin:4px 0;line-height:1.55}
+.card ul,.card ol{padding-left:22px}
+.card li{line-height:1.55;margin:3px 0}
+.kartu-judul{margin:0 0 8px;font-size:17px;color:var(--hijau)}
+.kartu-judul a{color:var(--hijau);text-decoration:none}
+.kartu-judul a:hover{text-decoration:underline}
+.untai-judul{margin:14px 0 2px;color:var(--hijau2);font-size:15px;border-bottom:2px solid var(--garis);padding-bottom:4px}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px}
+.stat-kotak{background:#f4f8f4;border:1px solid var(--garis);border-radius:10px;padding:12px 8px;text-align:center}
+.stat-angka{font-size:30px;font-weight:800;color:var(--hijau);line-height:1.1}
+.stat-label{font-size:12.5px;color:#555;margin-top:2px}
+.peta-baris{display:flex;align-items:center;gap:10px;margin:7px 0}
+.peta-nama{flex:0 0 36%;font-size:14.5px}
+.peta-nama a{color:var(--hijau);text-decoration:none}
+.peta-nama a:hover{text-decoration:underline}
+.peta-bar{flex:1;background:#e7eee7;border-radius:6px;height:12px;overflow:hidden}
+.peta-isi{height:100%;background:var(--hijau);border-radius:6px}
+.peta-angka{flex:0 0 96px;text-align:right;font-size:13px;color:#444}
+main h5{font-size:16px;color:var(--hijau2);margin:16px 0 6px}
+main h6{font-size:15px;color:var(--hijau2);margin:14px 0 6px}
+main blockquote{border-left:3px solid var(--hijau);margin:10px 0;padding:4px 12px;background:#f4f8f4}
+main li{margin:3px 0}
+.daftar-modul{list-style:none;margin:6px 0 0;padding:0}
+.daftar-modul li{margin:0;line-height:1.45}
+.daftar-modul li+li{border-top:1px solid var(--garis)}
+.daftar-modul a{display:flex;align-items:flex-start;gap:12px;padding:10px 8px;border-radius:8px;text-decoration:none;color:var(--teks)}
+.daftar-modul a:hover{background:#f5efdd}
+.daftar-modul .no{flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:var(--hijau);color:#fef9ec;font-weight:700;font-size:14px;line-height:30px;text-align:center;margin-top:1px}
+.daftar-modul .isi{flex:1;padding-top:4px}
+.daftar-modul .untai{flex:0 0 auto;font-size:11px;font-weight:600;color:var(--hijau);background:#eaf3ec;border:1px solid var(--garis);border-radius:999px;padding:2px 9px;margin-top:5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
+.angka{font-size:26px;font-weight:700;color:var(--hijau)}
+.label{font-size:13px;color:var(--redup);margin-top:2px}
+.bar{height:8px;background:#eee7d3;border-radius:99px;margin-top:10px;overflow:hidden}.bar i{display:block;height:100%;background:var(--hijau2)}
+h2{color:var(--hijau)}h3{color:var(--hijau2)}h4{color:var(--hijau);margin:16px 0 6px}
+.redup{color:var(--redup)}.kecil{font-size:13px}.peringatan{background:#fef3c7;border:1px solid #f59e0b;border-left:5px solid #f59e0b;border-radius:8px;padding:12px 14px;margin:14px 0;color:#78350f}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:14px;background:#fff}
+th,td{border:1px solid var(--garis);padding:7px 10px;text-align:left;vertical-align:top}th{background:#f0ead6}
+tr.grup td{background:#eaf3ec;font-weight:700;color:var(--hijau)}
+tr.induk{cursor:pointer}tr.induk td:first-child{font-weight:600}
+tr.induk:hover td{background:#f7f2df}
+.panah{display:inline-block;min-width:18px;color:var(--emas);font-weight:700}
+tr.anak{display:none;background:#fbf9f2}
+td.nama-anak{padding-left:34px;color:#44403c}
+.chip{display:inline-block;padding:6px 13px;margin:0 6px 8px 0;border:1px solid var(--garis);border-radius:999px;background:#fff;color:var(--teks);text-decoration:none;font-size:14px}
+.chip:hover{background:#f0ead6}
+.navbar-kelas{position:sticky;top:0;background:var(--hijau);padding:10px;border-radius:0 0 12px 12px;display:flex;flex-wrap:wrap;gap:4px;z-index:50;margin:0 0 14px;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.navbar-kelas a{color:#fef9ec;text-decoration:none;padding:7px 16px;border-radius:8px 8px 0 0;font-size:14.5px;border-bottom:3px solid transparent}
+.navbar-kelas a:hover{background:rgba(255,255,255,.16);border-bottom-color:var(--emas)}
+.navbar-kelas a.aktif{background:rgba(255,255,255,.22);border-bottom-color:var(--emas);font-weight:700}
+.kelas{scroll-margin-top:72px}
+.blok{margin:6px 0 14px}.blok p{margin:6px 0}.blok ul{margin:6px 0;padding-left:20px}.blok li{margin:3px 0}
+.empty-block{color:var(--redup);font-style:italic}
+.semester{border-top:2px solid var(--garis);margin-top:18px;padding-top:6px}
+.kelas{margin-top:26px}
+.table-container{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bilah-atas{display:none}
+@media(max-width:760px){
+.bungkus{flex-direction:column}
+.bilah-atas{display:block;position:sticky;top:0;z-index:200;background:var(--hijau);padding:8px 12px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.tombol-menu{background:none;border:1px solid rgba(255,255,255,.45);color:#fef9ec;border-radius:8px;padding:8px 16px;font:inherit;font-size:15px;cursor:pointer}
+aside{display:none;width:100%;flex:none}
+body.menu-terbuka aside{display:block;position:fixed;left:0;top:53px;bottom:0;width:78%;max-width:300px;height:auto;max-height:none;z-index:150;box-shadow:4px 0 18px rgba(0,0,0,.25)}
+main{padding:16px}
+table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.navbar-kelas{top:53px}
+.tabbar{top:53px !important}
+.kelas{scroll-margin-top:130px}
+}
+</style>
+</head>
+<body>
+<div class="bilah-atas"><button class="tombol-menu" onclick="document.body.classList.toggle('menu-terbuka')">&#9776; Menu</button></div>
+<div class="bungkus">
+<aside>
+<a href="../index.html" class="">Dashboard</a>
+<a href="../jadwal.html" class="">Jadwal Harian</a>
+<a href="../mapel.html" class="">Mapel</a>
+<a href="../guru.html" class="">Daftar Guru yang Dibutuhkan</a>
+<a href="../struktur.html" class="">Struktur Center</a>
+<a href="../skl.html" class="">SKL</a>
+<a href="../asesmen.html" class="">Asesmen Kelulusan</a>
+<a href="../asesmen-mapel.html" class="">Asesmen per Mapel</a>
+<details class="grupbox"><summary>Simulasi Jadwal KBM</summary>
+<a class="mapel " href="../simulasi.html">Jadwal per Kelas</a>
+<a class="mapel " href="../jadwal-guru.html">Jadwal per Guru</a>
+</details>
+<details class="grupbox"><summary>Center Bahasa</summary>
+<div class="subgrup">Bahasa Arab</div>
+<a class="mapel" href="../mapel/arab-qiraah.html">Arb - Qira&#x27;ah</a>
+<a class="mapel" href="../mapel/arab-nahwu.html">Arb - Nahwu</a>
+<a class="mapel" href="../mapel/arab-sharaf.html">Arb - Sharaf</a>
+<a class="mapel" href="../mapel/arab-kitabah.html">Arb - Kitabah-Imla&#x27;-Mufrodat</a>
+<a class="mapel" href="../mapel/arab-muhadatsah.html">Arb - Muhadatsah</a>
+<a class="mapel" href="../mapel/arab-balaghah.html">Arb - Balaghah</a>
+<a class="mapel" href="../mapel/arab-istima-insya.html">Arb - Istima&#x27;-Insya&#x27;</a>
+<div class="subgrup">Bahasa Inggris</div>
+<a class="mapel" href="../mapel/inggris-menyimak-berbicara.html">Ing - Listening &amp; Speaking</a>
+<a class="mapel" href="../mapel/inggris-membaca-memirsa.html">Ing - Reading &amp; Viewing</a>
+<a class="mapel" href="../mapel/inggris-menulis-mempresentasikan.html">Ing - Writing &amp; Presenting</a>
+<a class="mapel" href="../mapel/inggris-grammar.html">Ing - Grammar</a>
+<a class="mapel" href="../mapel/inggris-vocabulary.html">Ing - Vocabulary</a>
+<div class="subgrup">Bahasa Indonesia</div>
+<a class="mapel" href="../mapel/indonesia.html">Bahasa Indonesia</a>
+<div class="subgrup">Bahasa Mandarin</div>
+<a class="mapel" href="../mapel/mandarin.html">Bahasa Mandarin</a>
+</details>
+<details class="grupbox"><summary>Center Al-Qur&#x27;an</summary>
+<a class="mapel" href="../mapel/quran-tahsin-tahfidz.html">Tahsin &amp; Tahfidz</a>
+<a class="mapel" href="../takhosus.html">Takhosus</a>
+</details>
+<details class="grupbox"><summary>Center Dirosah Islamiyah</summary>
+<a class="mapel" href="../mapel/dirosah-fiqh.html">Fiqh</a>
+<a class="mapel" href="../mapel/dirosah-aqidah.html">Aqidah</a>
+<a class="mapel" href="../mapel/dirosah-akhlak.html">Akhlak</a>
+<a class="mapel" href="../mapel/dirosah-siroh.html">Siroh</a>
+</details>
+<details class="grupbox"><summary>Center Umum</summary>
+<a class="mapel" href="../mapel/umum-matematika.html">Matematika</a>
+<a class="mapel" href="../mapel/umum-ipa.html">IPA</a>
+<a class="mapel" href="../mapel/umum-ips.html">IPS</a>
+<a class="mapel" href="../mapel/umum-informatika.html">Informatika</a>
+<a class="mapel" href="../mapel/umum-ppkn.html">PPKn</a>
+<a class="mapel" href="../mapel/umum-seni.html">Seni</a>
+<a class="mapel" href="../mapel/umum-pjok.html">PJOK</a>
+</details>
+<details class="grupbox" open><summary>Modul Ajar</summary>
+<details class="grupbox"><summary>Kelas 7</summary>
+<a class="mapel" href="../modul/akhlak-k7-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/akhlak-k7-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../modul/aqidah-k7-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k7-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../modul/fiqh-k7-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k7-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../modul/grammar-k7-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k7-s2.html">Grammar · Semester 2</a>
+<a class="mapel" href="../modul/indonesia-k7-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k7-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../modul/informatika-k7-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k7-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../modul/ipa-k7-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k7-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../modul/ips-k7-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/ips-k7-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../modul/kitabah-k7-s1.html">Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../modul/kitabah-k7-s2.html">Kitabah-Imla&#x27;-Mufrodat · Semester 2</a>
+<a class="mapel" href="../modul/matematika-k7-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k7-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../modul/membaca-memirsa-k7-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k7-s2.html">Membaca–Memirsa · Semester 2</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k7-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k7-s2.html">Menulis–Mempresentasikan · Semester 2</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k7-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k7-s2.html">Menyimak–Berbicara · Semester 2</a>
+<a class="mapel" href="../modul/muhadatsah-k7-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k7-s2.html">Muhadatsah · Semester 2</a>
+<a class="mapel" href="../modul/nahwu-k7-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k7-s2.html">Nahwu · Semester 2</a>
+<a class="mapel" href="../modul/pjok-k7-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k7-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../modul/ppkn-k7-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k7-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../modul/qiraah-k7-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k7-s2.html">Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../modul/quran-k7-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/quran-k7-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+<a class="mapel" href="../modul/seni-k7-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/seni-k7-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../modul/sharaf-k7-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k7-s2.html">Sharaf · Semester 2</a>
+<a class="mapel" href="../modul/siroh-k7-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k7-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../modul/vocabulary-k7-s1.html">Vocabulary · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k7-s2.html">Vocabulary · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 8</summary>
+<a class="mapel" href="../modul/akhlak-k8-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/akhlak-k8-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../modul/aqidah-k8-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k8-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../modul/fiqh-k8-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k8-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../modul/grammar-k8-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k8-s2.html">Grammar · Semester 2</a>
+<a class="mapel" href="../modul/indonesia-k8-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k8-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../modul/informatika-k8-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k8-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../modul/ipa-k8-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k8-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../modul/ips-k8-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/ips-k8-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../modul/kitabah-k8-s1.html">Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../modul/kitabah-k8-s2.html">Kitabah-Imla&#x27;-Mufrodat · Semester 2</a>
+<a class="mapel" href="../modul/matematika-k8-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k8-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../modul/membaca-memirsa-k8-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k8-s2.html">Membaca–Memirsa · Semester 2</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k8-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k8-s2.html">Menulis–Mempresentasikan · Semester 2</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k8-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k8-s2.html">Menyimak–Berbicara · Semester 2</a>
+<a class="mapel" href="../modul/muhadatsah-k8-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k8-s2.html">Muhadatsah · Semester 2</a>
+<a class="mapel" href="../modul/nahwu-k8-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k8-s2.html">Nahwu · Semester 2</a>
+<a class="mapel" href="../modul/pjok-k8-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k8-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../modul/ppkn-k8-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k8-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../modul/qiraah-k8-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k8-s2.html">Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../modul/quran-k8-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/quran-k8-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+<a class="mapel" href="../modul/seni-k8-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/seni-k8-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../modul/sharaf-k8-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k8-s2.html">Sharaf · Semester 2</a>
+<a class="mapel" href="../modul/siroh-k8-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k8-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../modul/vocabulary-k8-s1.html">Vocabulary · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k8-s2.html">Vocabulary · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 9</summary>
+<a class="mapel" href="../modul/akhlak-k9-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k9-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k9-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k9-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k9-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k9-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k9-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ips-k9-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/kitabah-k9-s1.html">Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k9-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k9-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k9-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k9-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k9-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k9-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k9-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k9-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k9-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/quran-k9-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/seni-k9-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k9-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k9-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k9-s1.html">Vocabulary · Semester 1</a>
+</details>
+<details class="grupbox"><summary>Kelas 10</summary>
+<a class="mapel" href="../modul/akhlak-k10-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/akhlak-k10-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../modul/aqidah-k10-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k10-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../modul/fiqh-k10-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k10-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../modul/grammar-k10-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k10-s2.html">Grammar · Semester 2</a>
+<a class="mapel" href="../modul/indonesia-k10-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k10-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../modul/informatika-k10-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k10-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../modul/ipa-k10-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k10-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../modul/ips-k10-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/ips-k10-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../modul/mandarin-k10-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../modul/mandarin-k10-s2.html">Bahasa Mandarin · Semester 2</a>
+<a class="mapel" href="../modul/matematika-k10-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k10-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../modul/membaca-memirsa-k10-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k10-s2.html">Membaca–Memirsa · Semester 2</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k10-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k10-s2.html">Menulis–Mempresentasikan · Semester 2</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k10-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k10-s2.html">Menyimak–Berbicara · Semester 2</a>
+<a class="mapel" href="../modul/muhadatsah-k10-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k10-s2.html">Muhadatsah · Semester 2</a>
+<a class="mapel" href="../modul/nahwu-k10-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k10-s2.html">Nahwu · Semester 2</a>
+<a class="mapel" href="../modul/pjok-k10-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k10-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../modul/ppkn-k10-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k10-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../modul/qiraah-k10-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k10-s2.html">Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../modul/quran-k10-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/quran-k10-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+<a class="mapel" href="../modul/seni-k10-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/seni-k10-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../modul/sharaf-k10-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k10-s2.html">Sharaf · Semester 2</a>
+<a class="mapel" href="../modul/siroh-k10-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k10-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../modul/vocabulary-k10-s1.html">Vocabulary · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k10-s2.html">Vocabulary · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 11</summary>
+<a class="mapel" href="../modul/akhlak-k11-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/akhlak-k11-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../modul/aqidah-k11-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k11-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../modul/balaghah-k11-s1.html">Balaghah · Semester 1</a>
+<a class="mapel" href="../modul/balaghah-k11-s2.html">Balaghah · Semester 2</a>
+<a class="mapel" href="../modul/fiqh-k11-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k11-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../modul/grammar-k11-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k11-s2.html">Grammar · Semester 2</a>
+<a class="mapel" href="../modul/indonesia-k11-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k11-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../modul/informatika-k11-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k11-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../modul/ipa-k11-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k11-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../modul/ips-k11-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/ips-k11-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../modul/mandarin-k11-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../modul/mandarin-k11-s2.html">Bahasa Mandarin · Semester 2</a>
+<a class="mapel" href="../modul/matematika-k11-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k11-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../modul/membaca-memirsa-k11-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k11-s2.html">Membaca–Memirsa · Semester 2</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k11-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k11-s2.html">Menulis–Mempresentasikan · Semester 2</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k11-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k11-s2.html">Menyimak–Berbicara · Semester 2</a>
+<a class="mapel" href="../modul/muhadatsah-k11-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k11-s2.html">Muhadatsah · Semester 2</a>
+<a class="mapel" href="../modul/nahwu-k11-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k11-s2.html">Nahwu · Semester 2</a>
+<a class="mapel" href="../modul/pjok-k11-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k11-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../modul/ppkn-k11-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k11-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../modul/qiraah-k11-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k11-s2.html">Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../modul/quran-k11-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/quran-k11-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+<a class="mapel" href="../modul/seni-k11-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/seni-k11-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../modul/sharaf-k11-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k11-s2.html">Sharaf · Semester 2</a>
+<a class="mapel" href="../modul/siroh-k11-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k11-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../modul/vocabulary-k11-s1.html">Vocabulary · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k11-s2.html">Vocabulary · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 12</summary>
+<a class="mapel" href="../modul/akhlak-k12-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k12-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/balaghah-k12-s1.html">Balaghah · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k12-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k12-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k12-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k12-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k12-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ips-k12-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/mandarin-k12-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k12-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k12-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k12-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k12-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k12-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k12-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k12-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k12-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k12-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/quran-k12-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/seni-k12-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k12-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k12-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k12-s1.html">Vocabulary · Semester 1</a>
+</details>
+</details>
+<details class="grupbox"><summary>LKS per Mapel</summary>
+<details class="grupbox"><summary>Kelas 7</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k7-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-akhlak-k7-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k7-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k7-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../lks/arab-kitabah-k7-s1.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../lks/arab-kitabah-k7-s2.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 2</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k7-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k7-s2.html">Arb - Muhadatsah · Semester 2</a>
+<a class="mapel" href="../lks/arab-nahwu-k7-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k7-s2.html">Arb - Nahwu · Semester 2</a>
+<a class="mapel" href="../lks/arab-qiraah-k7-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k7-s2.html">Arb - Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../lks/arab-sharaf-k7-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k7-s2.html">Arb - Sharaf · Semester 2</a>
+<a class="mapel" href="../lks/indonesia-k7-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k7-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k7-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k7-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../lks/umum-ipa-k7-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k7-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../lks/umum-ips-k7-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k7-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../lks/umum-informatika-k7-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k7-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../lks/inggris-grammar-k7-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k7-s2.html">Ing - Grammar · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k7-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k7-s2.html">Ing - Listening &amp; Speaking · Semester 2</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k7-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k7-s2.html">Ing - Reading &amp; Viewing · Semester 2</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k7-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k7-s2.html">Ing - Vocabulary · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k7-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k7-s2.html">Ing - Writing &amp; Presenting · Semester 2</a>
+<a class="mapel" href="../lks/umum-matematika-k7-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k7-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../lks/umum-pjok-k7-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k7-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../lks/umum-ppkn-k7-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k7-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../lks/umum-seni-k7-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k7-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-siroh-k7-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k7-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k7-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k7-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 8</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k8-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-akhlak-k8-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k8-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k8-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../lks/arab-kitabah-k8-s1.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../lks/arab-kitabah-k8-s2.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 2</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k8-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k8-s2.html">Arb - Muhadatsah · Semester 2</a>
+<a class="mapel" href="../lks/arab-nahwu-k8-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k8-s2.html">Arb - Nahwu · Semester 2</a>
+<a class="mapel" href="../lks/arab-qiraah-k8-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k8-s2.html">Arb - Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../lks/arab-sharaf-k8-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k8-s2.html">Arb - Sharaf · Semester 2</a>
+<a class="mapel" href="../lks/indonesia-k8-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k8-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k8-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k8-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../lks/umum-ipa-k8-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k8-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../lks/umum-ips-k8-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k8-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../lks/umum-informatika-k8-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k8-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../lks/inggris-grammar-k8-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k8-s2.html">Ing - Grammar · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k8-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k8-s2.html">Ing - Listening &amp; Speaking · Semester 2</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k8-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k8-s2.html">Ing - Reading &amp; Viewing · Semester 2</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k8-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k8-s2.html">Ing - Vocabulary · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k8-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k8-s2.html">Ing - Writing &amp; Presenting · Semester 2</a>
+<a class="mapel" href="../lks/umum-matematika-k8-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k8-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../lks/umum-pjok-k8-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k8-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../lks/umum-ppkn-k8-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k8-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../lks/umum-seni-k8-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k8-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-siroh-k8-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k8-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k8-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k8-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 9</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k9-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k9-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/arab-kitabah-k9-s1.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k9-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k9-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k9-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k9-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k9-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k9-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k9-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k9-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k9-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k9-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k9-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k9-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k9-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k9-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k9-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k9-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k9-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k9-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k9-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k9-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+</details>
+<details class="grupbox"><summary>Kelas 10</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k10-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-akhlak-k10-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k10-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k10-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k10-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k10-s2.html">Arb - Muhadatsah · Semester 2</a>
+<a class="mapel" href="../lks/arab-nahwu-k10-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k10-s2.html">Arb - Nahwu · Semester 2</a>
+<a class="mapel" href="../lks/arab-qiraah-k10-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k10-s2.html">Arb - Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../lks/arab-sharaf-k10-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k10-s2.html">Arb - Sharaf · Semester 2</a>
+<a class="mapel" href="../lks/indonesia-k10-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k10-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../lks/mandarin-k10-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../lks/mandarin-k10-s2.html">Bahasa Mandarin · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k10-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k10-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../lks/umum-ipa-k10-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k10-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../lks/umum-ips-k10-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k10-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../lks/umum-informatika-k10-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k10-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../lks/inggris-grammar-k10-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k10-s2.html">Ing - Grammar · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k10-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k10-s2.html">Ing - Listening &amp; Speaking · Semester 2</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k10-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k10-s2.html">Ing - Reading &amp; Viewing · Semester 2</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k10-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k10-s2.html">Ing - Vocabulary · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k10-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k10-s2.html">Ing - Writing &amp; Presenting · Semester 2</a>
+<a class="mapel" href="../lks/umum-matematika-k10-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k10-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../lks/umum-pjok-k10-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k10-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../lks/umum-ppkn-k10-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k10-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../lks/umum-seni-k10-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k10-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-siroh-k10-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k10-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k10-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k10-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 11</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k11-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-akhlak-k11-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k11-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k11-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../lks/arab-balaghah-k11-s1.html">Arb - Balaghah · Semester 1</a>
+<a class="mapel" href="../lks/arab-balaghah-k11-s2.html">Arb - Balaghah · Semester 2</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k11-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k11-s2.html">Arb - Muhadatsah · Semester 2</a>
+<a class="mapel" href="../lks/arab-nahwu-k11-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k11-s2.html">Arb - Nahwu · Semester 2</a>
+<a class="mapel" href="../lks/arab-qiraah-k11-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k11-s2.html">Arb - Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../lks/arab-sharaf-k11-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k11-s2.html">Arb - Sharaf · Semester 2</a>
+<a class="mapel" href="../lks/indonesia-k11-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k11-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../lks/mandarin-k11-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../lks/mandarin-k11-s2.html">Bahasa Mandarin · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k11-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k11-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../lks/umum-ipa-k11-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k11-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../lks/umum-ips-k11-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k11-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../lks/umum-informatika-k11-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k11-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../lks/inggris-grammar-k11-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k11-s2.html">Ing - Grammar · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k11-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k11-s2.html">Ing - Listening &amp; Speaking · Semester 2</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k11-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k11-s2.html">Ing - Reading &amp; Viewing · Semester 2</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k11-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k11-s2.html">Ing - Vocabulary · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k11-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k11-s2.html">Ing - Writing &amp; Presenting · Semester 2</a>
+<a class="mapel" href="../lks/umum-matematika-k11-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k11-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../lks/umum-pjok-k11-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k11-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../lks/umum-ppkn-k11-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k11-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../lks/umum-seni-k11-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k11-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-siroh-k11-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k11-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k11-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k11-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 12</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k12-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k12-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/arab-balaghah-k12-s1.html">Arb - Balaghah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k12-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k12-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k12-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k12-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k12-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/mandarin-k12-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k12-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k12-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k12-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k12-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k12-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k12-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k12-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k12-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k12-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k12-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k12-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k12-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k12-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k12-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k12-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+</details>
+</details>
+</aside>
+<main>
+<div class="card"><h2>Modul Ajar — Aqidah</h2>
+<h3>Identitas</h3>
+<table>
+<tr><th>Komponen</th><th>Keterangan</th></tr>
+<tr><td>Mata Pelajaran</td><td>Aqidah</td></tr>
+<tr><td>Kelas</td><td>12</td></tr>
+<tr><td>Semester</td><td>1 (Ganjil)</td></tr>
+<tr><td>Pertemuan</td><td>Ke-7</td></tr>
+<tr><td>Fase</td><td>Fase F</td></tr>
+<tr><td>Alokasi Waktu</td><td>60 menit (2 JP × 30 menit)</td></tr>
+</table>
+<h3>Tujuan Pembelajaran</h3>
+<ul><li><strong>TP-3</strong>: Santri mampu menguraikan doktrin Qada dan Qadar secara mendalam: korelasi ilmu azali, iradah, takdir, dan konsep *Kasab* (usaha hamba) ala Asy&#x27;ariyah.</li></ul>
+<h4>Indikator Ketercapaian</h4>
+<ol start="1"><li>Menganalisis teori *Al-Kasb* menurut rumusan Imam Abu al-Hasan al-Asy&#x27;ari.</li><li>Menjelaskan hubungan perbuatan hamba (*af&#x27;alul &#x27;ibad*) dengan kehendak mutlak (*iradah*) dan kekuasaan (*qudrah*) Allah Swt.</li></ol>
+<h3>Materi Pokok</h3>
+<h4>1. Hakikat *Af&#x27;alul &#x27;Ibad* (Perbuatan Hamba)</h4>
+<p>Dalam diskursus ilmu kalam, perbuatan manusia terbagi menjadi dua kategori:</p>
+<ul><li><strong>Af&#x27;al Idhthirariyyah (Perbuatan Terpaksa/Refleks)</strong>: Perbuatan di luar kehendak sadar manusia, seperti detak jantung, gerak refleks saat terkejut, atau menggigil kedinginan. Para ulama sepakat perbuatan ini murni ciptaan Allah dan manusia tidak menanggung beban taklif atasnya.</li><li><strong>Af&#x27;al Ikhtiyariyyah (Perbuatan Pilihan/Sadar)</strong>: Perbuatan yang lahir dengan adanya niat, pertimbangan, dan kehendak sadar manusia, seperti belajar, shalat, berjalan, atau maksiat.</li></ul>
+<p>Perdebatan teologis klasik menempatkan Ahlussunnah wal Jama&#x27;ah (khususnya rumusan Asy&#x27;ariyah) pada posisi jalan tengah (*tawassuth*) di antara dua kutub ekstrem:</p>
+<ul><li><strong>Jabariyah</strong>: Menganggap manusia terpaksa mutlak bagaikan bulu yang ditiup angin, menafikan sama sekali kehendak dan peran manusia.</li><li><strong>Mu&#x27;tazilah</strong>: Menganggap manusia adalah pencipta mandiri (*khaliq*) atas perbuatan ikhtiarnya sendiri melalui daya yang dititipkan Allah, terlepas dari kehendak langsung Allah.</li></ul>
+<h4>2. Teori *Al-Kasb* Rumusan Imam Abu al-Hasan al-Asy&#x27;ari</h4>
+<p>Imam Abu al-Hasan al-Asy&#x27;ari merumuskan konsep *Al-Kasb* (akuisisi/usaha) untuk mendamaikan antara kemutlakan tauhid penciptaan Allah (*khalq*) dan pertanggungjawaban moral manusia (*taklif*).</p>
+<ul><li><strong>Hakikat Kasb</strong>: Bertemunya daya cipta Allah dengan kehendak sadar hamba. Allah Swt. menciptakan perbuatan sekaligus menciptakan daya (*qudrah*) dan kehendak (*iradah*) hamba yang beriringan (*iqtiran*) dengan timbulnya perbuatan tersebut, bukan karena daya hamba berstatus menciptakan (*la bi thariqil ijad*).</li><li><strong>Pencipta vs Pelaku</strong>: Allah adalah *Al-Khaliq* (Pencipta hakiki) dari perbuatan hamba, sedangkan hamba adalah *Al-Kasib* (pihak yang mengusahakan dan menautkan niatnya).</li><li><strong>Dalil Naqli</strong>:</li><li>Surah As-Saffat ayat 96: *&quot;Padahal Allah-lah yang menciptakan kamu dan apa yang kamu perbuat itu.&quot;* (Menegaskan tauhid rububiyyah dan penciptaan mutlak).</li><li>Surah Al-Baqarah ayat 286: *&quot;Ia mendapat pahala (dari kebaikan) yang diusahakannya dan ia mendapat siksa (dari kejahatan) yang dikerjakannya.&quot;* (Menegaskan adanya *kasb* dan pertanggungjawaban taklif).</li><li><strong>Dalil Aqli Sederhana</strong>: Jika manusia menciptakan perbuatannya sendiri secara mandiri, niscaya ia tahu rincian saraf, pembuluh darah, dan molekul yang bergerak saat ia menggerakkan jarinya, serta ia sanggup memastikan keberhasilan usahanya tanpa gagal. Ketidaktahuan manusia atas mekanisme internal tubuhnya dan kegagalan yang kerap terjadi membuktikan ia bukan pencipta hakiki perbuatannya.</li></ul>
+<h4>3. Korelasi Kehendak Hamba dan Kehendak Mutlak Allah</h4>
+<ul><li>Tidak ada satu pun gerak maupun diam di alam semesta ini yang keluar dari cakupan ilmu (*&#x27;ilm*), kehendak (*iradah*), dan kekuasaan (*qudrah*) Allah Swt.</li><li>Kehendak hamba tunduk di bawah kehendak Allah (*Wa ma tasya&#x27;una illa an yasya&#x27;allah*). Namun, ketundukan ini tidak menghilangkan tanggung jawab manusia karena Allah mengaitkan pahala dan dosa pada niat, arah tekad, dan *kasab* yang dipilih oleh hamba tersebut.</li></ul>
+<h3>Kegiatan Pembelajaran</h3>
+<h4>Pendahuluan (±10 menit)</h4>
+<ol start="1"><li><strong>Pembukaan &amp; Doa</strong>: Guru membuka majelis ta&#x27;lim kelas dengan salam, membaca surah Al-Fatihah, dan doa thalabul &#x27;ilmi.</li><li><strong>Apersepsi</strong>: Guru menanyakan kembali materi pekan lalu tentang korelasi ilmu azali dan takdir, lalu memantik santri: *&quot;Ketika tangan kita menulis faedah kitab, dan ketika tangan kita gemetar karena demam tinggi, apa beda status keduanya di hadapan Allah?&quot;*</li><li><strong>Motivasi &amp; Orientasi</strong>: Guru menyampaikan indikator pertemuan ke-7, yakni memahami teori *Al-Kasb* Imam al-Asy&#x27;ari agar santri tidak bersikap fatalis (malas berusaha dengan dalih takdir) dan tidak bersikap sombong (merasa sukses semata-mata karena kepintaran sendiri).</li></ol>
+<h4>Inti (±40 menit) — Pembelajaran Berbasis Teks Kitab Kuning</h4>
+<ol start="1"><li><strong>Pembacaan Matan Kitab secara Bergiliran (±10 menit)</strong>:</li></ol>
+<ul><li>Santri membuka kitab akidah pegangan kelas (seperti *Tuhfatul Murid syarah Jauharatut Tauhid* atau *Kifayatul &#x27;Awam* pada fasal *Af&#x27;alul &#x27;Ibad* dan *Kasb*).</li><li>Tiga orang santri ditunjuk secara acak untuk membaca matan dan syarah secara *sorogan* singkat dengan harakat (*makna gandul/jenggotan*) yang tepat di hadapan teman-temannya.</li><li>Santri lain menyimak dan mencocokkan harakat serta makna lafaz kitab masing-masing.</li></ul>
+<ol start="2"><li><strong>Penjelasan Guru &amp; Penguraian Dalil (±15 menit)</strong>:</li></ol>
+<ul><li>Guru mengurai makna tekstual dan kontekstual: menjelaskan pengertian *Al-Kasb* menurut rumusan Imam Abu al-Hasan al-Asy&#x27;ari.</li><li>Guru membedakan posisi Asy&#x27;ariyah dengan Jabariyah dan Mu&#x27;tazilah menggunakan bagan sederhana di papan tulis.</li><li>Guru membacakan dalil naqli (QS. As-Saffat: 96 dan QS. Al-Baqarah: 286) serta memaparkan dalil aqli sederhana mengenai keterbatasan daya manusia.</li><li>Guru mengaitkan konsep *kasab* ke dalam realitas pesantren: perjuangan bangun subuh, mengulang hafalan (*muthala&#x27;ah*), menjaga adab, dan menghindari dosa kamar/hujrah. Santri wajib berikhtiar total (*kasb*), tetapi tetap bertawakal penuh bahwa hasil mutlak milik Allah.</li></ul>
+<ol start="3"><li><strong>Tanya Jawab &amp; Diskusi Kontekstual Santri (±15 menit)</strong>:</li></ol>
+<ul><li>Santri diberikan ruang bertanya mengenai dilema takdir dan usaha.</li><li>Guru menguji pemahaman santri dengan studi kasus: *&quot;Seorang santri terlambat shalat berjamaah di masjid pesantren lalu beralasan: &#x27;Sudah takdir Allah saya bangun jam 05.00 pagi.&#x27; Bagaimana bantahan akidah Asy&#x27;ariyah terhadap alasan tersebut?&quot;*</li><li>Santri menjawab dan mendiskusikan bahwa alasan santri tersebut keliru karena ia menggunakan dalih takdir untuk menjustifikasi kelalaian *kasb* (seperti begadang tanpa uzur dan tidak memasang niat sungguh-sungguh untuk bangun tepat waktu).</li></ul>
+<h4>Penutup (±10 menit)</h4>
+<ol start="1"><li><strong>Kesimpulan Bersama</strong>: Santri dipandu oleh guru menyimpulkan butir utama: Allah menciptakan perbuatan dan daya, sementara manusia mengarahkan ikhtiar (*kasab*) yang menjadi dasar hisab di akhirat.</li><li><strong>Refleksi Hati</strong>: Menanamkan adab batin agar santri tidak takabur ketika berprestasi atau istiqamah, serta tidak menyalahkan takdir ketika terjatuh dalam maksiat atau kemalasan.</li><li><strong>Tugas &amp; Tindak Lanjut</strong>: Santri diminta mencatat rangkuman faedah (*taqrirat*) kitab di buku catatan masing-masing.</li><li><strong>Penutup</strong>: Majelis ditutup dengan doa kafaratul majelis dan salam.</li></ol>
+<h3>Asesmen</h3>
+<h4>1. Soal Latihan Singkat (Tertulis / Lisan)</h4>
+<ol start="1"><li>Jelaskan perbedaan mendasar antara pandangan kaum Jabariyah, Mu&#x27;tazilah, dan rumusan *Al-Kasb* Imam Abu al-Hasan al-Asy&#x27;ari terkait perbuatan hamba (*af&#x27;alul &#x27;ibad*)!</li><li>Jika Allah adalah pencipta hakiki dari segala sesuatu termasuk perbuatan manusia, atas dasar apa manusia berhak menerima pahala atau balasan siksa?</li><li>Sebutkan satu dalil aqli sederhana yang membuktikan bahwa manusia bukan pencipta mandiri atas perbuatannya sendiri!</li></ol>
+<h4>2. Kunci / Rambu Jawaban</h4>
+<ol start="1"><li><strong>Rambu Jawaban</strong>:</li></ol>
+<ul><li>*Jabariyah*: Manusia dipaksa mutlak (*majbur*), tidak punya kehendak maupun usaha, seperti ranting diombang-ambingkan arus air.</li><li>*Mu&#x27;tazilah*: Manusia menciptakan sendiri perbuatannya secara mandiri melalui daya yang telah diberikan Allah kepadanya.</li><li>*Asy&#x27;ariyah (Al-Kasb)*: Allah adalah pencipta perbuatan dan daya, sedangkan manusia mengusahakan (*kasb*) dengan menautkan kehendak sadar dan niatnya pada perbuatan tersebut.</li></ul>
+<ol start="2"><li><strong>Rambu Jawaban</strong>:</li></ol>
+<ul><li>Manusia menerima pahala atau siksa bukan atas dasar statusnya sebagai pencipta perbuatan, melainkan atas dasar *kasb* (pilihan sadar, niat, dan ikhtiar) yang telah ia gunakan. Allah menuntut pertanggungjawaban atas arah kehendak hamba tersebut (*al-ikhtiyar wal kasb*).</li></ul>
+<ol start="3"><li><strong>Rambu Jawaban</strong>:</li></ol>
+<ul><li>Ketidaktahuan manusia akan detail organ, denyut nadi, dan mekanisme biologis saat ia bertindak, serta kenyataan bahwa manusia kerap mengalami kegagalan meski sudah berupaya sekuat tenaga, menunjukkan ia bukan pencipta hakiki.</li></ul>
+<h4>3. Kriteria Ketuntasan</h4>
+<ul><li><strong>Tuntas Sempurna (Skor 85-100)</strong>: Santri mampu menjelaskan pengertian *kasb*, mendudukkan perbedaan tiga firqah secara tepat, dan menunjukkan dalil naqli/aqli dengan argumen logis.</li><li><strong>Tuntas Cukup (Skor 75-84)</strong>: Santri mampu membedakan *kasb* dengan paham Jabariyah dan Mu&#x27;tazilah, serta memahami alasan adanya hisab, meski dalil aqli belum terurai mendalam.</li><li><strong>Perlu Bimbingan (Skor &lt; 75)</strong>: Santri masih rancu menyamakan *kasb* dengan Jabariyah atau belum mampu menjelaskan mengapa manusia menanggung dosa jika perbuatan diciptakan Allah. Diberikan bimbingan talaqqi ulang saat halaqah sore.</li></ul>
+<h3>Media dan Sumber Belajar</h3>
+<ul><li><strong>Media</strong>: Papan tulis, spidol, matan kitab kuning berharakat/makna pegon.</li><li><strong>Sumber Belajar Utama</strong>:</li><li>Kitab *Tuhfatul Murid &#x27;ala Jauharatit Tauhid* karya Syaikh Ibrahim al-Bajuri (bab *Af&#x27;alul &#x27;Ibad wa Mabhatsul Qada&#x27; wal Qadar*).</li><li>Kitab *Kifayatul &#x27;Awam* karya Syaikh Muhammad al-Fadhali.</li><li><strong>Sumber Rujukan Pendukung</strong>:</li><li>Al-Qur&#x27;an Al-Karim (Kemenag RI).</li><li>Kitab *Al-Ibanah &#x27;an Ushulid Diyanah* karya Imam Abu al-Hasan al-Asy&#x27;ari.</li><li>Modul Akidah Akhlak Madrasah Aliyah Kelas 12 Kurikulum Merdeka.</li></ul>
+<h3>Catatan Refleksi Guru</h3>
+<ul><li><strong>Keterlibatan Santri</strong>: Apakah seluruh santri aktif menyimak pembacaan teks kitab, atau masih ada yang pasif dan sekadar menyalin harakat tanpa memahami konteks?</li><li><strong>Kedalaman Pemahaman Teologis</strong>: Apakah santri sudah benar-benar memahami konsep *iqtiran* (beriringan) antara daya Allah dan kehendak hamba, atau masih tergelincir memahami *kasb* seolah-olah persekutuan dua pencipta?</li><li><strong>Dampak Perilaku Santri</strong>: Apakah pemahaman materi ini berhasil mengikis sifat malas belajar santri yang suka beralasan dengan dalih takdir, serta mengikis kesombongan santri yang pandai agar senantiasa bertawakal?</li><li><strong>Tindak Lanjut</strong>: Bagi santri yang belum lancar membaca matan kitab kuning, perlu diagendakan pengulangan bacaan (*sorogan*) pada kegiatan halaqah malam di asrama.</li></ul></div>
+</main>
+</div>
+
+</body>
+</html>
