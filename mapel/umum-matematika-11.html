@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matematika — Kurikulum</title>
+<style>
+:root{--hijau:#14532d;--hijau2:#166534;--emas:#b45309;--latar:#f7f5ef;--kartu:#fff;--teks:#1c1917;--redup:#78716c;--garis:#e7e0cf}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--latar);color:var(--teks)}
+.bungkus{display:flex;min-height:100vh}
+aside{width:290px;flex:0 0 290px;background:var(--hijau);color:#fef9ec;padding:16px 12px;position:sticky;top:0;height:100vh;overflow:auto}
+aside a{display:block;color:#fef9ec;text-decoration:none;padding:8px 10px;border-radius:8px;font-size:14px}
+aside a:hover{background:rgba(255,255,255,.12)}aside a.aktif{background:var(--emas);color:#fff;font-weight:600}
+aside .grup{margin:14px 6px 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#d6cfae}
+aside .subgrup{margin:8px 6px 2px;font-size:11px;color:#a7c4ae;padding-left:8px}
+aside details.grupbox>summary{margin:14px 6px 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#d6cfae;cursor:pointer;list-style:none;padding:4px 0}
+aside details.grupbox>summary::-webkit-details-marker{display:none}
+aside details.grupbox>summary::before{content:'▸ '}
+aside details.grupbox[open]>summary::before{content:'▾ '}
+aside details.grupbox details.grupbox>summary{margin:6px 6px 2px 16px;text-transform:none;letter-spacing:0;font-size:12.5px}
+aside details.grupbox details.grupbox a.mapel{padding-left:38px}
+aside a.mapel{padding-left:22px;font-size:13.5px}
+main{flex:1;padding:24px 30px;max-width:1020px;min-width:0}
+.kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:12px;padding:16px 20px;margin:14px 0}
+.card{background:var(--kartu);border:1px solid var(--garis);border-radius:12px;padding:16px 20px;margin:14px 0;box-shadow:0 1px 3px rgba(28,25,23,.06)}
+.card h3{margin-top:2px}
+main a{color:var(--hijau2)}
+.content-list{margin:8px 0;padding-left:20px}
+.content-list li{margin:4px 0;line-height:1.55}
+.card ul,.card ol{padding-left:22px}
+.card li{line-height:1.55;margin:3px 0}
+.kartu-judul{margin:0 0 8px;font-size:17px;color:var(--hijau)}
+.kartu-judul a{color:var(--hijau);text-decoration:none}
+.kartu-judul a:hover{text-decoration:underline}
+.untai-judul{margin:14px 0 2px;color:var(--hijau2);font-size:15px;border-bottom:2px solid var(--garis);padding-bottom:4px}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px}
+.stat-kotak{background:#f4f8f4;border:1px solid var(--garis);border-radius:10px;padding:12px 8px;text-align:center}
+.stat-angka{font-size:30px;font-weight:800;color:var(--hijau);line-height:1.1}
+.stat-label{font-size:12.5px;color:#555;margin-top:2px}
+.peta-baris{display:flex;align-items:center;gap:10px;margin:7px 0}
+.peta-nama{flex:0 0 36%;font-size:14.5px}
+.peta-nama a{color:var(--hijau);text-decoration:none}
+.peta-nama a:hover{text-decoration:underline}
+.peta-bar{flex:1;background:#e7eee7;border-radius:6px;height:12px;overflow:hidden}
+.peta-isi{height:100%;background:var(--hijau);border-radius:6px}
+.peta-angka{flex:0 0 96px;text-align:right;font-size:13px;color:#444}
+main h5{font-size:16px;color:var(--hijau2);margin:16px 0 6px}
+main h6{font-size:15px;color:var(--hijau2);margin:14px 0 6px}
+main blockquote{border-left:3px solid var(--hijau);margin:10px 0;padding:4px 12px;background:#f4f8f4}
+main li{margin:3px 0}
+.daftar-modul{list-style:none;margin:6px 0 0;padding:0}
+.daftar-modul li{margin:0;line-height:1.45}
+.daftar-modul li+li{border-top:1px solid var(--garis)}
+.daftar-modul a{display:flex;align-items:flex-start;gap:12px;padding:10px 8px;border-radius:8px;text-decoration:none;color:var(--teks)}
+.daftar-modul a:hover{background:#f5efdd}
+.daftar-modul .no{flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:var(--hijau);color:#fef9ec;font-weight:700;font-size:14px;line-height:30px;text-align:center;margin-top:1px}
+.daftar-modul .isi{flex:1;padding-top:4px}
+.daftar-modul .untai{flex:0 0 auto;font-size:11px;font-weight:600;color:var(--hijau);background:#eaf3ec;border:1px solid var(--garis);border-radius:999px;padding:2px 9px;margin-top:5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
+.angka{font-size:26px;font-weight:700;color:var(--hijau)}
+.label{font-size:13px;color:var(--redup);margin-top:2px}
+.bar{height:8px;background:#eee7d3;border-radius:99px;margin-top:10px;overflow:hidden}.bar i{display:block;height:100%;background:var(--hijau2)}
+h2{color:var(--hijau)}h3{color:var(--hijau2)}h4{color:var(--hijau);margin:16px 0 6px}
+.redup{color:var(--redup)}.kecil{font-size:13px}.peringatan{background:#fef3c7;border:1px solid #f59e0b;border-left:5px solid #f59e0b;border-radius:8px;padding:12px 14px;margin:14px 0;color:#78350f}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:14px;background:#fff}
+th,td{border:1px solid var(--garis);padding:7px 10px;text-align:left;vertical-align:top}th{background:#f0ead6}
+tr.grup td{background:#eaf3ec;font-weight:700;color:var(--hijau)}
+tr.induk{cursor:pointer}tr.induk td:first-child{font-weight:600}
+tr.induk:hover td{background:#f7f2df}
+.panah{display:inline-block;min-width:18px;color:var(--emas);font-weight:700}
+tr.anak{display:none;background:#fbf9f2}
+td.nama-anak{padding-left:34px;color:#44403c}
+.chip{display:inline-block;padding:6px 13px;margin:0 6px 8px 0;border:1px solid var(--garis);border-radius:999px;background:#fff;color:var(--teks);text-decoration:none;font-size:14px}
+.chip:hover{background:#f0ead6}
+.navbar-kelas{position:sticky;top:0;background:var(--hijau);padding:10px;border-radius:0 0 12px 12px;display:flex;flex-wrap:wrap;gap:4px;z-index:50;margin:0 0 14px;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.navbar-kelas a{color:#fef9ec;text-decoration:none;padding:7px 16px;border-radius:8px 8px 0 0;font-size:14.5px;border-bottom:3px solid transparent}
+.navbar-kelas a:hover{background:rgba(255,255,255,.16);border-bottom-color:var(--emas)}
+.navbar-kelas a.aktif{background:rgba(255,255,255,.22);border-bottom-color:var(--emas);font-weight:700}
+.kelas{scroll-margin-top:72px}
+.blok{margin:6px 0 14px}.blok p{margin:6px 0}.blok ul{margin:6px 0;padding-left:20px}.blok li{margin:3px 0}
+.empty-block{color:var(--redup);font-style:italic}
+.semester{border-top:2px solid var(--garis);margin-top:18px;padding-top:6px}
+.kelas{margin-top:26px}
+.table-container{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bilah-atas{display:none}
+@media(max-width:760px){
+.bungkus{flex-direction:column}
+.bilah-atas{display:block;position:sticky;top:0;z-index:200;background:var(--hijau);padding:8px 12px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.tombol-menu{background:none;border:1px solid rgba(255,255,255,.45);color:#fef9ec;border-radius:8px;padding:8px 16px;font:inherit;font-size:15px;cursor:pointer}
+aside{display:none;width:100%;flex:none}
+body.menu-terbuka aside{display:block;position:fixed;left:0;top:53px;bottom:0;width:78%;max-width:300px;height:auto;max-height:none;z-index:150;box-shadow:4px 0 18px rgba(0,0,0,.25)}
+main{padding:16px}
+table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.navbar-kelas{top:53px}
+.tabbar{top:53px !important}
+.kelas{scroll-margin-top:130px}
+}
+</style>
+</head>
+<body>
+<div class="bilah-atas"><button class="tombol-menu" onclick="document.body.classList.toggle('menu-terbuka')">&#9776; Menu</button></div>
+<div class="bungkus">
+<aside>
+<a href="../index.html" class="">Dashboard</a>
+<a href="../jadwal.html" class="">Jadwal Harian</a>
+<a href="../mapel.html" class="">Mapel</a>
+<a href="../guru.html" class="">Daftar Guru yang Dibutuhkan</a>
+<a href="../struktur.html" class="">Struktur Center</a>
+<a href="../skl.html" class="">SKL</a>
+<a href="../asesmen.html" class="">Asesmen Kelulusan</a>
+<a href="../asesmen-mapel.html" class="">Asesmen per Mapel</a>
+<details class="grupbox"><summary>Simulasi Jadwal KBM</summary>
+<a class="mapel " href="../simulasi.html">Jadwal per Kelas</a>
+<a class="mapel " href="../jadwal-guru.html">Jadwal per Guru</a>
+</details>
+<details class="grupbox"><summary>Center Bahasa</summary>
+<div class="subgrup">Bahasa Arab</div>
+<a class="mapel" href="../mapel/arab-qiraah.html">Arb - Qira&#x27;ah</a>
+<a class="mapel" href="../mapel/arab-nahwu.html">Arb - Nahwu</a>
+<a class="mapel" href="../mapel/arab-sharaf.html">Arb - Sharaf</a>
+<a class="mapel" href="../mapel/arab-kitabah.html">Arb - Kitabah-Imla&#x27;-Mufrodat</a>
+<a class="mapel" href="../mapel/arab-muhadatsah.html">Arb - Muhadatsah</a>
+<a class="mapel" href="../mapel/arab-balaghah.html">Arb - Balaghah</a>
+<a class="mapel" href="../mapel/arab-istima-insya.html">Arb - Istima&#x27;-Insya&#x27;</a>
+<div class="subgrup">Bahasa Inggris</div>
+<a class="mapel" href="../mapel/inggris-menyimak-berbicara.html">Ing - Listening &amp; Speaking</a>
+<a class="mapel" href="../mapel/inggris-membaca-memirsa.html">Ing - Reading &amp; Viewing</a>
+<a class="mapel" href="../mapel/inggris-menulis-mempresentasikan.html">Ing - Writing &amp; Presenting</a>
+<a class="mapel" href="../mapel/inggris-grammar.html">Ing - Grammar</a>
+<a class="mapel" href="../mapel/inggris-vocabulary.html">Ing - Vocabulary</a>
+<div class="subgrup">Bahasa Indonesia</div>
+<a class="mapel" href="../mapel/indonesia.html">Bahasa Indonesia</a>
+<div class="subgrup">Bahasa Mandarin</div>
+<a class="mapel" href="../mapel/mandarin.html">Bahasa Mandarin</a>
+</details>
+<details class="grupbox"><summary>Center Al-Qur&#x27;an</summary>
+<a class="mapel" href="../mapel/quran-tahsin-tahfidz.html">Tahsin &amp; Tahfidz</a>
+<a class="mapel" href="../takhosus.html">Takhosus</a>
+</details>
+<details class="grupbox"><summary>Center Dirosah Islamiyah</summary>
+<a class="mapel" href="../mapel/dirosah-fiqh.html">Fiqh</a>
+<a class="mapel" href="../mapel/dirosah-aqidah.html">Aqidah</a>
+<a class="mapel" href="../mapel/dirosah-akhlak.html">Akhlak</a>
+<a class="mapel" href="../mapel/dirosah-siroh.html">Siroh</a>
+</details>
+<details class="grupbox" open><summary>Center Umum</summary>
+<a class="mapel aktif" href="../mapel/umum-matematika.html">Matematika</a>
+<a class="mapel" href="../mapel/umum-ipa.html">IPA</a>
+<a class="mapel" href="../mapel/umum-ips.html">IPS</a>
+<a class="mapel" href="../mapel/umum-informatika.html">Informatika</a>
+<a class="mapel" href="../mapel/umum-ppkn.html">PPKn</a>
+<a class="mapel" href="../mapel/umum-seni.html">Seni</a>
+<a class="mapel" href="../mapel/umum-pjok.html">PJOK</a>
+</details>
+<details class="grupbox"><summary>Modul Ajar</summary>
+<details class="grupbox"><summary>Kelas 7</summary>
+<a class="mapel" href="../modul/akhlak-k7-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/akhlak-k7-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../modul/aqidah-k7-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k7-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../modul/fiqh-k7-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k7-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../modul/grammar-k7-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k7-s2.html">Grammar · Semester 2</a>
+<a class="mapel" href="../modul/indonesia-k7-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k7-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../modul/informatika-k7-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k7-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../modul/ipa-k7-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k7-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../modul/ips-k7-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/ips-k7-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../modul/kitabah-k7-s1.html">Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../modul/kitabah-k7-s2.html">Kitabah-Imla&#x27;-Mufrodat · Semester 2</a>
+<a class="mapel" href="../modul/matematika-k7-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k7-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../modul/membaca-memirsa-k7-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k7-s2.html">Membaca–Memirsa · Semester 2</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k7-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k7-s2.html">Menulis–Mempresentasikan · Semester 2</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k7-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k7-s2.html">Menyimak–Berbicara · Semester 2</a>
+<a class="mapel" href="../modul/muhadatsah-k7-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k7-s2.html">Muhadatsah · Semester 2</a>
+<a class="mapel" href="../modul/nahwu-k7-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k7-s2.html">Nahwu · Semester 2</a>
+<a class="mapel" href="../modul/pjok-k7-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k7-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../modul/ppkn-k7-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k7-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../modul/qiraah-k7-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k7-s2.html">Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../modul/quran-k7-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/quran-k7-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+<a class="mapel" href="../modul/seni-k7-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/seni-k7-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../modul/sharaf-k7-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k7-s2.html">Sharaf · Semester 2</a>
+<a class="mapel" href="../modul/siroh-k7-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k7-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../modul/vocabulary-k7-s1.html">Vocabulary · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k7-s2.html">Vocabulary · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 8</summary>
+<a class="mapel" href="../modul/akhlak-k8-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/akhlak-k8-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../modul/aqidah-k8-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k8-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../modul/fiqh-k8-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k8-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../modul/grammar-k8-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k8-s2.html">Grammar · Semester 2</a>
+<a class="mapel" href="../modul/indonesia-k8-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k8-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../modul/informatika-k8-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k8-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../modul/ipa-k8-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k8-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../modul/ips-k8-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/ips-k8-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../modul/kitabah-k8-s1.html">Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../modul/kitabah-k8-s2.html">Kitabah-Imla&#x27;-Mufrodat · Semester 2</a>
+<a class="mapel" href="../modul/matematika-k8-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k8-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../modul/membaca-memirsa-k8-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k8-s2.html">Membaca–Memirsa · Semester 2</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k8-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k8-s2.html">Menulis–Mempresentasikan · Semester 2</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k8-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k8-s2.html">Menyimak–Berbicara · Semester 2</a>
+<a class="mapel" href="../modul/muhadatsah-k8-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k8-s2.html">Muhadatsah · Semester 2</a>
+<a class="mapel" href="../modul/nahwu-k8-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k8-s2.html">Nahwu · Semester 2</a>
+<a class="mapel" href="../modul/pjok-k8-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k8-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../modul/ppkn-k8-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k8-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../modul/qiraah-k8-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k8-s2.html">Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../modul/quran-k8-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/quran-k8-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+<a class="mapel" href="../modul/seni-k8-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/seni-k8-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../modul/sharaf-k8-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k8-s2.html">Sharaf · Semester 2</a>
+<a class="mapel" href="../modul/siroh-k8-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k8-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../modul/vocabulary-k8-s1.html">Vocabulary · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k8-s2.html">Vocabulary · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 9</summary>
+<a class="mapel" href="../modul/akhlak-k9-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k9-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k9-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k9-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k9-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k9-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k9-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ips-k9-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/kitabah-k9-s1.html">Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k9-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k9-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k9-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k9-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k9-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k9-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k9-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k9-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k9-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/quran-k9-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/seni-k9-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k9-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k9-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k9-s1.html">Vocabulary · Semester 1</a>
+</details>
+<details class="grupbox"><summary>Kelas 10</summary>
+<a class="mapel" href="../modul/akhlak-k10-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/akhlak-k10-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../modul/aqidah-k10-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k10-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../modul/fiqh-k10-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k10-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../modul/grammar-k10-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k10-s2.html">Grammar · Semester 2</a>
+<a class="mapel" href="../modul/indonesia-k10-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k10-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../modul/informatika-k10-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k10-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../modul/ipa-k10-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k10-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../modul/ips-k10-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/ips-k10-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../modul/mandarin-k10-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../modul/mandarin-k10-s2.html">Bahasa Mandarin · Semester 2</a>
+<a class="mapel" href="../modul/matematika-k10-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k10-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../modul/membaca-memirsa-k10-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k10-s2.html">Membaca–Memirsa · Semester 2</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k10-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k10-s2.html">Menulis–Mempresentasikan · Semester 2</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k10-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k10-s2.html">Menyimak–Berbicara · Semester 2</a>
+<a class="mapel" href="../modul/muhadatsah-k10-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k10-s2.html">Muhadatsah · Semester 2</a>
+<a class="mapel" href="../modul/nahwu-k10-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k10-s2.html">Nahwu · Semester 2</a>
+<a class="mapel" href="../modul/pjok-k10-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k10-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../modul/ppkn-k10-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k10-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../modul/qiraah-k10-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k10-s2.html">Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../modul/quran-k10-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/quran-k10-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+<a class="mapel" href="../modul/seni-k10-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/seni-k10-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../modul/sharaf-k10-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k10-s2.html">Sharaf · Semester 2</a>
+<a class="mapel" href="../modul/siroh-k10-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k10-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../modul/vocabulary-k10-s1.html">Vocabulary · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k10-s2.html">Vocabulary · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 11</summary>
+<a class="mapel" href="../modul/akhlak-k11-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/akhlak-k11-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../modul/aqidah-k11-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k11-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../modul/balaghah-k11-s1.html">Balaghah · Semester 1</a>
+<a class="mapel" href="../modul/balaghah-k11-s2.html">Balaghah · Semester 2</a>
+<a class="mapel" href="../modul/fiqh-k11-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k11-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../modul/grammar-k11-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k11-s2.html">Grammar · Semester 2</a>
+<a class="mapel" href="../modul/indonesia-k11-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k11-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../modul/informatika-k11-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k11-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../modul/ipa-k11-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k11-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../modul/ips-k11-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/ips-k11-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../modul/mandarin-k11-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../modul/mandarin-k11-s2.html">Bahasa Mandarin · Semester 2</a>
+<a class="mapel" href="../modul/matematika-k11-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k11-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../modul/membaca-memirsa-k11-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k11-s2.html">Membaca–Memirsa · Semester 2</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k11-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k11-s2.html">Menulis–Mempresentasikan · Semester 2</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k11-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k11-s2.html">Menyimak–Berbicara · Semester 2</a>
+<a class="mapel" href="../modul/muhadatsah-k11-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k11-s2.html">Muhadatsah · Semester 2</a>
+<a class="mapel" href="../modul/nahwu-k11-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k11-s2.html">Nahwu · Semester 2</a>
+<a class="mapel" href="../modul/pjok-k11-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k11-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../modul/ppkn-k11-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k11-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../modul/qiraah-k11-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k11-s2.html">Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../modul/quran-k11-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/quran-k11-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+<a class="mapel" href="../modul/seni-k11-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/seni-k11-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../modul/sharaf-k11-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k11-s2.html">Sharaf · Semester 2</a>
+<a class="mapel" href="../modul/siroh-k11-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k11-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../modul/vocabulary-k11-s1.html">Vocabulary · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k11-s2.html">Vocabulary · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 12</summary>
+<a class="mapel" href="../modul/akhlak-k12-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../modul/aqidah-k12-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../modul/balaghah-k12-s1.html">Balaghah · Semester 1</a>
+<a class="mapel" href="../modul/fiqh-k12-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../modul/grammar-k12-s1.html">Grammar · Semester 1</a>
+<a class="mapel" href="../modul/indonesia-k12-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../modul/informatika-k12-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../modul/ipa-k12-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../modul/ips-k12-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../modul/mandarin-k12-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../modul/matematika-k12-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../modul/membaca-memirsa-k12-s1.html">Membaca–Memirsa · Semester 1</a>
+<a class="mapel" href="../modul/menulis-mempresentasikan-k12-s1.html">Menulis–Mempresentasikan · Semester 1</a>
+<a class="mapel" href="../modul/menyimak-berbicara-k12-s1.html">Menyimak–Berbicara · Semester 1</a>
+<a class="mapel" href="../modul/muhadatsah-k12-s1.html">Muhadatsah · Semester 1</a>
+<a class="mapel" href="../modul/nahwu-k12-s1.html">Nahwu · Semester 1</a>
+<a class="mapel" href="../modul/pjok-k12-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../modul/ppkn-k12-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../modul/qiraah-k12-s1.html">Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../modul/quran-k12-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../modul/seni-k12-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../modul/sharaf-k12-s1.html">Sharaf · Semester 1</a>
+<a class="mapel" href="../modul/siroh-k12-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../modul/vocabulary-k12-s1.html">Vocabulary · Semester 1</a>
+</details>
+</details>
+<details class="grupbox"><summary>LKS per Mapel</summary>
+<details class="grupbox"><summary>Kelas 7</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k7-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-akhlak-k7-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k7-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k7-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../lks/arab-kitabah-k7-s1.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../lks/arab-kitabah-k7-s2.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 2</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k7-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k7-s2.html">Arb - Muhadatsah · Semester 2</a>
+<a class="mapel" href="../lks/arab-nahwu-k7-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k7-s2.html">Arb - Nahwu · Semester 2</a>
+<a class="mapel" href="../lks/arab-qiraah-k7-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k7-s2.html">Arb - Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../lks/arab-sharaf-k7-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k7-s2.html">Arb - Sharaf · Semester 2</a>
+<a class="mapel" href="../lks/indonesia-k7-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k7-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k7-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k7-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../lks/umum-ipa-k7-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k7-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../lks/umum-ips-k7-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k7-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../lks/umum-informatika-k7-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k7-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../lks/inggris-grammar-k7-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k7-s2.html">Ing - Grammar · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k7-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k7-s2.html">Ing - Listening &amp; Speaking · Semester 2</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k7-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k7-s2.html">Ing - Reading &amp; Viewing · Semester 2</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k7-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k7-s2.html">Ing - Vocabulary · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k7-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k7-s2.html">Ing - Writing &amp; Presenting · Semester 2</a>
+<a class="mapel" href="../lks/umum-matematika-k7-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k7-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../lks/umum-pjok-k7-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k7-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../lks/umum-ppkn-k7-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k7-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../lks/umum-seni-k7-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k7-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-siroh-k7-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k7-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k7-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k7-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 8</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k8-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-akhlak-k8-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k8-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k8-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../lks/arab-kitabah-k8-s1.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../lks/arab-kitabah-k8-s2.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 2</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k8-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k8-s2.html">Arb - Muhadatsah · Semester 2</a>
+<a class="mapel" href="../lks/arab-nahwu-k8-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k8-s2.html">Arb - Nahwu · Semester 2</a>
+<a class="mapel" href="../lks/arab-qiraah-k8-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k8-s2.html">Arb - Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../lks/arab-sharaf-k8-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k8-s2.html">Arb - Sharaf · Semester 2</a>
+<a class="mapel" href="../lks/indonesia-k8-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k8-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k8-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k8-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../lks/umum-ipa-k8-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k8-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../lks/umum-ips-k8-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k8-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../lks/umum-informatika-k8-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k8-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../lks/inggris-grammar-k8-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k8-s2.html">Ing - Grammar · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k8-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k8-s2.html">Ing - Listening &amp; Speaking · Semester 2</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k8-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k8-s2.html">Ing - Reading &amp; Viewing · Semester 2</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k8-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k8-s2.html">Ing - Vocabulary · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k8-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k8-s2.html">Ing - Writing &amp; Presenting · Semester 2</a>
+<a class="mapel" href="../lks/umum-matematika-k8-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k8-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../lks/umum-pjok-k8-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k8-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../lks/umum-ppkn-k8-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k8-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../lks/umum-seni-k8-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k8-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-siroh-k8-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k8-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k8-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k8-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 9</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k9-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k9-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/arab-kitabah-k9-s1.html">Arb - Kitabah-Imla&#x27;-Mufrodat · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k9-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k9-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k9-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k9-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k9-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k9-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k9-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k9-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k9-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k9-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k9-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k9-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k9-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k9-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k9-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k9-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k9-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k9-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k9-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k9-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+</details>
+<details class="grupbox"><summary>Kelas 10</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k10-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-akhlak-k10-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k10-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k10-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k10-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k10-s2.html">Arb - Muhadatsah · Semester 2</a>
+<a class="mapel" href="../lks/arab-nahwu-k10-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k10-s2.html">Arb - Nahwu · Semester 2</a>
+<a class="mapel" href="../lks/arab-qiraah-k10-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k10-s2.html">Arb - Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../lks/arab-sharaf-k10-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k10-s2.html">Arb - Sharaf · Semester 2</a>
+<a class="mapel" href="../lks/indonesia-k10-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k10-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../lks/mandarin-k10-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../lks/mandarin-k10-s2.html">Bahasa Mandarin · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k10-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k10-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../lks/umum-ipa-k10-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k10-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../lks/umum-ips-k10-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k10-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../lks/umum-informatika-k10-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k10-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../lks/inggris-grammar-k10-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k10-s2.html">Ing - Grammar · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k10-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k10-s2.html">Ing - Listening &amp; Speaking · Semester 2</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k10-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k10-s2.html">Ing - Reading &amp; Viewing · Semester 2</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k10-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k10-s2.html">Ing - Vocabulary · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k10-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k10-s2.html">Ing - Writing &amp; Presenting · Semester 2</a>
+<a class="mapel" href="../lks/umum-matematika-k10-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k10-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../lks/umum-pjok-k10-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k10-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../lks/umum-ppkn-k10-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k10-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../lks/umum-seni-k10-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k10-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-siroh-k10-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k10-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k10-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k10-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 11</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k11-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-akhlak-k11-s2.html">Akhlak · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k11-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k11-s2.html">Aqidah · Semester 2</a>
+<a class="mapel" href="../lks/arab-balaghah-k11-s1.html">Arb - Balaghah · Semester 1</a>
+<a class="mapel" href="../lks/arab-balaghah-k11-s2.html">Arb - Balaghah · Semester 2</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k11-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k11-s2.html">Arb - Muhadatsah · Semester 2</a>
+<a class="mapel" href="../lks/arab-nahwu-k11-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k11-s2.html">Arb - Nahwu · Semester 2</a>
+<a class="mapel" href="../lks/arab-qiraah-k11-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k11-s2.html">Arb - Qira&#x27;ah · Semester 2</a>
+<a class="mapel" href="../lks/arab-sharaf-k11-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k11-s2.html">Arb - Sharaf · Semester 2</a>
+<a class="mapel" href="../lks/indonesia-k11-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k11-s2.html">Bahasa Indonesia · Semester 2</a>
+<a class="mapel" href="../lks/mandarin-k11-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../lks/mandarin-k11-s2.html">Bahasa Mandarin · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k11-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k11-s2.html">Fiqh · Semester 2</a>
+<a class="mapel" href="../lks/umum-ipa-k11-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k11-s2.html">IPA · Semester 2</a>
+<a class="mapel" href="../lks/umum-ips-k11-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k11-s2.html">IPS · Semester 2</a>
+<a class="mapel" href="../lks/umum-informatika-k11-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k11-s2.html">Informatika · Semester 2</a>
+<a class="mapel" href="../lks/inggris-grammar-k11-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k11-s2.html">Ing - Grammar · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k11-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k11-s2.html">Ing - Listening &amp; Speaking · Semester 2</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k11-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k11-s2.html">Ing - Reading &amp; Viewing · Semester 2</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k11-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k11-s2.html">Ing - Vocabulary · Semester 2</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k11-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k11-s2.html">Ing - Writing &amp; Presenting · Semester 2</a>
+<a class="mapel" href="../lks/umum-matematika-k11-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k11-s2.html">Matematika · Semester 2</a>
+<a class="mapel" href="../lks/umum-pjok-k11-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k11-s2.html">PJOK · Semester 2</a>
+<a class="mapel" href="../lks/umum-ppkn-k11-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k11-s2.html">PPKn · Semester 2</a>
+<a class="mapel" href="../lks/umum-seni-k11-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k11-s2.html">Seni · Semester 2</a>
+<a class="mapel" href="../lks/dirosah-siroh-k11-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k11-s2.html">Siroh · Semester 2</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k11-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k11-s2.html">Tahsin &amp; Tahfidz · Semester 2</a>
+</details>
+<details class="grupbox"><summary>Kelas 12</summary>
+<a class="mapel" href="../lks/dirosah-akhlak-k12-s1.html">Akhlak · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-aqidah-k12-s1.html">Aqidah · Semester 1</a>
+<a class="mapel" href="../lks/arab-balaghah-k12-s1.html">Arb - Balaghah · Semester 1</a>
+<a class="mapel" href="../lks/arab-muhadatsah-k12-s1.html">Arb - Muhadatsah · Semester 1</a>
+<a class="mapel" href="../lks/arab-nahwu-k12-s1.html">Arb - Nahwu · Semester 1</a>
+<a class="mapel" href="../lks/arab-qiraah-k12-s1.html">Arb - Qira&#x27;ah · Semester 1</a>
+<a class="mapel" href="../lks/arab-sharaf-k12-s1.html">Arb - Sharaf · Semester 1</a>
+<a class="mapel" href="../lks/indonesia-k12-s1.html">Bahasa Indonesia · Semester 1</a>
+<a class="mapel" href="../lks/mandarin-k12-s1.html">Bahasa Mandarin · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-fiqh-k12-s1.html">Fiqh · Semester 1</a>
+<a class="mapel" href="../lks/umum-ipa-k12-s1.html">IPA · Semester 1</a>
+<a class="mapel" href="../lks/umum-ips-k12-s1.html">IPS · Semester 1</a>
+<a class="mapel" href="../lks/umum-informatika-k12-s1.html">Informatika · Semester 1</a>
+<a class="mapel" href="../lks/inggris-grammar-k12-s1.html">Ing - Grammar · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menyimak-berbicara-k12-s1.html">Ing - Listening &amp; Speaking · Semester 1</a>
+<a class="mapel" href="../lks/inggris-membaca-memirsa-k12-s1.html">Ing - Reading &amp; Viewing · Semester 1</a>
+<a class="mapel" href="../lks/inggris-vocabulary-k12-s1.html">Ing - Vocabulary · Semester 1</a>
+<a class="mapel" href="../lks/inggris-menulis-mempresentasikan-k12-s1.html">Ing - Writing &amp; Presenting · Semester 1</a>
+<a class="mapel" href="../lks/umum-matematika-k12-s1.html">Matematika · Semester 1</a>
+<a class="mapel" href="../lks/umum-pjok-k12-s1.html">PJOK · Semester 1</a>
+<a class="mapel" href="../lks/umum-ppkn-k12-s1.html">PPKn · Semester 1</a>
+<a class="mapel" href="../lks/umum-seni-k12-s1.html">Seni · Semester 1</a>
+<a class="mapel" href="../lks/dirosah-siroh-k12-s1.html">Siroh · Semester 1</a>
+<a class="mapel" href="../lks/quran-tahsin-tahfidz-k12-s1.html">Tahsin &amp; Tahfidz · Semester 1</a>
+</details>
+</details>
+</aside>
+<main>
+<nav class="navbar-kelas"><a href="umum-matematika-7.html">Kelas 7</a><a href="umum-matematika-8.html">Kelas 8</a><a href="umum-matematika-9.html">Kelas 9</a><a href="umum-matematika-10.html">Kelas 10</a><a href="umum-matematika-11.html" class="aktif">Kelas 11</a><a href="umum-matematika-12.html">Kelas 12</a></nav>
+<p class="redup kecil">Center Umum
+ · Sumber: muatan-umum/MATERI-MATEMATIKA-PER-PERTEMUAN-Rev11.md</p>
+<h2>Matematika</h2>
+<div class="kelas" id="kelas-11"><h3>Kelas 11</h3>
+<p class="redup kecil">Fase F (Kelas 11–12)</p>
+<div class="semester"><h3>Semester 1</h3>
+<h4>CP</h4><div class="blok"><p><strong>Label:</strong> Fase F (Kelas 11–12)</p>
+<p><strong>Fase F (kelas 11–12)</strong> — Pada akhir Fase F, peserta didik mampu menggunakan fungsi komposisi dan invers, matriks dan determinan, persamaan lingkaran dan garis singgungnya, transformasi geometri dengan matriks, serta program linear untuk pemodelan masalah (domain aljabar dan geometri); memahami dan menerapkan limit, turunan, dan integral fungsi aljabar beserta aplikasinya (domain aljabar — kalkulus dasar); serta menganalisis distribusi peluang dan nilai harapan dan menarik kesimpulan sederhana dari data (domain data dan peluang).</p></div>
+<h4>TP</h4><div class="blok"><ul class="content-list">
+<li><strong>TP-1 · Pertemuan 1–36</strong>: Peserta didik mampu memahami konsep relasi dan fungsi, operasi aljabar fungsi, serta menentukan komposisi dua fungsi beserta nilai fungsinya.</li>
+<li><strong>TP-2 · Pertemuan 4–5</strong>: Peserta didik mampu menganalisis syarat daerah asal (domain) dan daerah hasil (kodomain/range) komposisi fungsi serta mengevaluasi komposisi tiga fungsi secara berurutan.</li>
+<li><strong>TP-3 · Pertemuan 6–8</strong>: Peserta didik mampu memahami konsep fungsi bijektif dan fungsi invers serta menentukan rumus invers fungsi aljabar secara prosedural.</li>
+<li><strong>TP-4 · Pertemuan 9–10</strong>: Peserta didik mampu menentukan invers dari fungsi komposisi serta menerapkan sifat-sifat invers fungsi komposisi dalam pemecahan masalah.</li>
+<li><strong>TP-5 · Pertemuan 11–13</strong>: Peserta didik mampu memahami konsep matriks, notasi, ordo, jenis-jenis matriks, kesamaan dua matriks, dan transpos matriks.</li>
+<li><strong>TP-6 · Pertemuan 14–15</strong>: Peserta didik mampu melakukan operasi penjumlahan, pengurangan, dan perkalian skalar pada matriks serta menerapkan sifat-sifat operasinya.</li>
+<li><strong>TP-7 · Pertemuan 16–18</strong>: Peserta didik mampu menganalisis syarat perkalian dua matriks dan melakukan operasi perkalian matriks menggunakan mekanisme baris kali kolom.</li>
+<li><strong>TP-8 · Pertemuan 19–24</strong>: Peserta didik mampu menentukan determinan matriks persegi berordo 2x2 dan 3x3 serta mengidentifikasi matriks singular dan non-singular.</li>
+<li><strong>TP-9 · Pertemuan 21–27</strong>: Peserta didik mampu menentukan invers matriks berordo 2x2 menggunakan adjoin serta memanfaatkan persamaan matriks untuk menyelesaikan sistem persamaan linear dua variabel (SPLDV).</li>
+<li><strong>TP-10 · Pertemuan 28–30</strong>: Peserta didik mampu membedakan konsep deret geometri tak hingga konvergen dan divergen berdasarkan nilai rasio serta menghitung jumlah deret geometri tak hingga pada masalah kontekstual.</li>
+<li><strong>TP-11 · Pertemuan 31–32</strong>: Peserta didik mampu membandingkan konsep bunga tunggal dan bunga majemuk serta menghitung akumulasi nilai akhir simpanan atau modal.</li>
+<li><strong>TP-12 · Pertemuan 33–34</strong>: Peserta didik mampu memodelkan dan menyelesaikan masalah anuitas, pelunasan pinjaman, pembuatan tabel angsuran, serta penyusutan aset ekonomi pesantren.</li>
+</ul></div>
+<h4>ATP</h4><div class="blok"><ul class="content-list">
+<li><strong>TP-1</strong>: Peserta didik mampu memahami konsep relasi dan fungsi, operasi aljabar fungsi, serta menentukan komposisi dua fungsi beserta nilai fungsinya.</li>
+<li><strong>TP-2</strong>: Peserta didik mampu menganalisis syarat daerah asal (domain) dan daerah hasil (kodomain/range) komposisi fungsi serta mengevaluasi komposisi tiga fungsi secara berurutan.</li>
+<li><strong>TP-3</strong>: Peserta didik mampu memahami konsep fungsi bijektif dan fungsi invers serta menentukan rumus invers fungsi aljabar secara prosedural.</li>
+<li><strong>TP-4</strong>: Peserta didik mampu menentukan invers dari fungsi komposisi serta menerapkan sifat-sifat invers fungsi komposisi dalam pemecahan masalah.</li>
+<li><strong>TP-5</strong>: Peserta didik mampu memahami konsep matriks, notasi, ordo, jenis-jenis matriks, kesamaan dua matriks, dan transpos matriks.</li>
+<li><strong>TP-6</strong>: Peserta didik mampu melakukan operasi penjumlahan, pengurangan, dan perkalian skalar pada matriks serta menerapkan sifat-sifat operasinya.</li>
+<li><strong>TP-7</strong>: Peserta didik mampu menganalisis syarat perkalian dua matriks dan melakukan operasi perkalian matriks menggunakan mekanisme baris kali kolom.</li>
+<li><strong>TP-8</strong>: Peserta didik mampu menentukan determinan matriks persegi berordo 2x2 dan 3x3 serta mengidentifikasi matriks singular dan non-singular.</li>
+<li><strong>TP-9</strong>: Peserta didik mampu menentukan invers matriks berordo 2x2 menggunakan adjoin serta memanfaatkan persamaan matriks untuk menyelesaikan sistem persamaan linear dua variabel (SPLDV).</li>
+<li><strong>TP-10</strong>: Peserta didik mampu membedakan konsep deret geometri tak hingga konvergen dan divergen berdasarkan nilai rasio serta menghitung jumlah deret geometri tak hingga pada masalah kontekstual.</li>
+<li><strong>TP-11</strong>: Peserta didik mampu membandingkan konsep bunga tunggal dan bunga majemuk serta menghitung akumulasi nilai akhir simpanan atau modal.</li>
+<li><strong>TP-12</strong>: Peserta didik mampu memodelkan dan menyelesaikan masalah anuitas, pelunasan pinjaman, pembuatan tabel angsuran, serta penyusutan aset ekonomi pesantren.</li>
+</ul>
+<div class="table-container"><table class="curriculum-table"><thead><tr><th>Pertemuan</th><th>TP</th><th>Materi</th><th>Indikator</th></tr></thead><tbody><tr><td>P1</td><td>TP-1</td><td><strong>Aljabar Fungsi</strong>: Konsep relasi dan fungsi, operasi penjumlahan, pengurangan, perkalian, dan pembagian fungsi aljabar beserta penentuan daerah asalnya.</td><td>Menjelaskan perbedaan relasi dan fungsi; menyelesaikan operasi aljabar penjumlahan, pengurangan, perkalian, dan pembagian dua fungsi</td></tr><tr><td>P2</td><td>TP-1</td><td><strong>Konsep Komposisi Dua Fungsi</strong>: Pengertian penggabungan dua fungsi secara berurutan (f o g)(x) dan (g o f)(x) serta pemaknaan mesin fungsi bertingkat.</td><td>Mengilustrasikan proses penggabungan dua fungsi; menentukan rumus komposisi dua fungsi linear dan kuadrat sederhana</td></tr><tr><td>P3</td><td>TP-1</td><td><strong>Evaluasi Nilai Komposisi Dua Fungsi</strong>: Perhitungan nilai numerik fungsi komposisi untuk nilai variabel tertentu dan penentuan nilai prapeta jika nilai komposisi diketahui.</td><td>Menghitung nilai fungsi komposisi pada titik tertentu; menentukan nilai variabel x jika nilai komposisi fungsi diketahui</td></tr><tr><td>P4</td><td>TP-2</td><td><strong>Syarat Domain dan Range Komposisi Fungsi</strong>: Syarat keteririsan daerah hasil fungsi pertama dengan daerah asal fungsi kedua (irisan Rf dan Dg tidak kosong).</td><td>Menentukan daerah asal (domain) dan daerah hasil (range) dari masing-masing fungsi; menganalisis syarat keberadaan fungsi komposisi berdasarkan irisan daerah hasil dan daerah asal</td></tr><tr><td>P5</td><td>TP-2</td><td><strong>Komposisi Tiga Fungsi</strong>: Mekanisme penggabungan tiga fungsi aljabar secara bertingkat dan evaluasi sifat asosiatif pada komposisi fungsi.</td><td>Menentukan rumus komposisi tiga fungsi aljabar berurutan; membuktikan berlakunya sifat asosiatif pada komposisi fungsi melalui perhitungan aljabar</td></tr><tr><td>P6</td><td>TP-3</td><td><strong>Konsep Invers Fungsi dan Syarat Bijektif</strong>: Pemahaman fungsi satu-satu (injektif), pada (surjektif), berkorespondensi satu-satu (bijektif), serta eksistensi fungsi invers.</td><td>Membedakan fungsi yang memiliki invers dan tidak memiliki invers melalui diagram panah/grafik; menjelaskan syarat suatu fungsi memiliki fungsi invers</td></tr><tr><td>P7</td><td>TP-3</td><td><strong>Langkah Aljabar Menentukan Invers Fungsi Linear dan Pecahan</strong>: Teknik manipulasi aljabar menukar variabel x dan y untuk menentukan rumus fungsi invers linear dan fungsi rasional/pecahan linear.</td><td>Menentukan rumus invers dari fungsi linear; menentukan rumus invers dari fungsi pecahan linear beserta daerah asal alaminya</td></tr><tr><td>P8</td><td>TP-3</td><td><strong>Invers Fungsi Kuadrat dengan Pembatasan Domain</strong>: Penentuan invers fungsi kuadrat melalui teknik melengkapkan kuadrat sempurna serta penyesuaian domain agar menjadi fungsi bijektif.</td><td>Menentukan domain pembatas agar fungsi kuadrat memiliki invers; menentukan rumus fungsi invers dari bentuk kuadrat dengan tepat</td></tr><tr><td>P9</td><td>TP-4</td><td><strong>Invers dari Fungsi Komposisi</strong>: Penentuan rumus invers dari komposisi dua fungsi melalui pencarian komposisi terlebih dahulu kemudian diinverskan.</td><td>Menentukan rumus invers fungsi komposisi (f o g)^(-1)(x) secara aljabar langsung; menghitung nilai numerik invers fungsi komposisi pada titik tertentu</td></tr><tr><td>P10</td><td>TP-4</td><td><strong>Sifat-Sifat Invers Fungsi Komposisi</strong>: Pembuktian dan penerapan sifat kesetaraan (f o g)^(-1)(x) = (g^(-1) o f^(-1))(x) serta invers dari invers suatu fungsi.</td><td>Membuktikan kesetaraan sifat invers fungsi komposisi dengan komposisi antar invers; menyelesaikan masalah matematika yang melibatkan relasi sifat invers fungsi</td></tr><tr><td>P11</td><td>TP-5</td><td><strong>Konsep Matriks, Ordo, dan Elemen</strong>: Definisi matriks sebagai susunan bilangan dalam baris dan kolom, notasi matriks, ordo (ukuran), baris, kolom, dan identifikasi elemen matriks.</td><td>Mengidentifikasi letak elemen baris dan kolom pada suatu matriks; menentukan ordo dari matriks yang disajikan dalam konteks tabel data sederhana</td></tr><tr><td>P12</td><td>TP-5</td><td><strong>Jenis-Jenis Matriks dan Kesamaan Dua Matriks</strong>: Matriks nol, matriks baris, matriks kolom, matriks persegi, matriks diagonal, matriks identitas, dan syarat kesamaan dua matriks.</td><td>Mengklasifikasikan ragam bentuk matriks khusus; menentukan nilai variabel yang belum diketahui dari kesamaan dua matriks</td></tr><tr><td>P13</td><td>TP-5</td><td><strong>Transpos Matriks dan Sifat-Sifatnya</strong>: Konsep pertukaran baris menjadi kolom pada matriks, notasi transpos, matriks simetris, dan sifat transpos penjumlahan.</td><td>Menentukan hasil transpos suatu matriks berordo 2x2, 2x3, dan 3x3; mengidentifikasi sifat-sifat dasar operasi transpos matriks</td></tr><tr><td>P14</td><td>TP-6</td><td><strong>Operasi Penjumlahan dan Pengurangan Matriks</strong>: Syarat kesamaan ordo, mekanisme penjumlahan dan pengurangan elemen-elemen yang seletak, serta sifat komutatif dan asosiatif.</td><td>Menentukan hasil penjumlahan dan pengurangan dua atau lebih matriks yang berordo sama; menerapkan sifat komutatif dan asosiatif penjumlahan matriks</td></tr><tr><td>P15</td><td>TP-6</td><td><strong>Operasi Perkalian Skalar pada Matriks</strong>: Penggandaan setiap elemen matriks dengan skalar riil, sifat distributif perkalian skalar, dan kombinasi linear matriks.</td><td>Menghitung hasil kali suatu bilangan skalar dengan matriks; menyelesaikan persamaan aljabar linear matriks sederhana</td></tr><tr><td>P16</td><td>TP-7</td><td><strong>Syarat dan Konsep Perkalian Dua Matriks</strong>: Syarat kompatibilitas ordo (banyaknya kolom matriks pertama sama dengan banyaknya baris matriks kedua) dan penentuan ordo hasil kali.</td><td>Menganalisis dapat atau tidaknya dua matriks dikalikan berdasarkan kesesuaian ordo; menentukan ordo matriks hasil perkalian dua matriks</td></tr><tr><td>P17</td><td>TP-7</td><td><strong>Mekanisme Perkalian Baris Kali Kolom Ordo 2x2</strong>: Teknik perkalian elemen baris matriks pertama dengan elemen kolom matriks kedua pada matriks berordo 2x2 serta ketidakberlakuan sifat komutatif secara umum.</td><td>Melakukan perhitungan perkalian dua matriks berordo 2x2 secara akurat; menunjukkan melalui contoh bahwa perkalian matriks umumnya tidak bersifat komutatif (AB != BA)</td></tr><tr><td>P18</td><td>TP-7</td><td><strong>Perkalian Matriks Non-Persegi dan Sifat Asosiatif-Distributif</strong>: Perhitungan perkalian matriks persegi panjang (ordo 2x3, 3x2) dan verifikasi sifat asosiatif serta distributif perkalian matriks terhadap penjumlahan.</td><td>Menyelesaikan perkalian dua matriks dengan ordo persegi panjang yang memenuhi syarat ordo; menerapkan sifat perkalian matriks dengan matriks identitas dan sifat distributif</td></tr><tr><td>P19</td><td>TP-8</td><td><strong>Determinan Matriks Berordo 2x2</strong>: Konsep determinan matriks ordo dua, rumus perkalian silang diagonal utama dikurangi diagonal samping, dan notasi determinan.</td><td>Menghitung nilai determinan matriks berordo 2x2; menentukan nilai variabel yang tidak diketahui dari persamaan determinan matriks</td></tr><tr><td>P20</td><td>TP-8</td><td><strong>Matriks Singular dan Non-Singular</strong>: Definisi matriks singular (determinan sama dengan nol) dan matriks non-singular (determinan tidak sama dengan nol) serta syarat eksistensi invers.</td><td>Membedakan matriks singular dan matriks non-singular berdasarkan nilai determinannya; menentukan parameter nilai variabel agar suatu matriks menjadi singular</td></tr><tr><td>P21</td><td>TP-9</td><td><strong>Adjoin dan Invers Matriks Berordo 2x2</strong>: Konsep adjoin matriks 2x2, rumus invers matriks satu per determinan dikalikan adjoin, dan verifikasi bahwa perkalian matriks dengan inversnya menghasilkan matriks identitas.</td><td>Menentukan adjoin dari matriks berordo 2x2; menghitung invers matriks non-singular berordo 2x2 dengan rumus adjoin</td></tr><tr><td>P22</td><td>TP-9</td><td><strong>Sifat-Sifat Invers Matriks</strong>: Pembahasan sifat invers dari hasil kali matriks (AB)^(-1) = B^(-1) A^(-1), invers dari transpos matriks, dan invers dari invers suatu matriks.</td><td>Menerapkan rumus sifat invers hasil kali dua matriks; membuktikan hubungan keterbalikan urutan pada invers perkalian matriks</td></tr><tr><td>P23</td><td>TP-8</td><td><strong>Determinan Matriks Berordo 3x3: Metode Sarrus</strong>: Mekanisme penulisan ulang dua kolom pertama di sebelah kanan matriks dan aturan perkalian diagonal tanda positif dan negatif.</td><td>Menyusun skema metode Sarrus untuk matriks berordo 3x3; menghitung nilai determinan matriks ordo 3x3 secara sistematis dan teliti</td></tr><tr><td>P24</td><td>TP-8</td><td><strong>Aplikasi Determinan Matriks Ordo 3x3</strong>: Evaluasi determinan matriks berordo 3x3 yang memuat elemen bernilai nol dan penerapan sifat dasar determinan.</td><td>Menghitung determinan matriks 3x3 dengan efisien memanfaatkan pola baris atau kolom yang memiliki elemen nol; menyelesaikan persamaan nilai determinan matriks 3x3</td></tr><tr><td>P25</td><td>TP-9</td><td><strong>Pemodelan SPLDV ke Bentuk Persamaan Matriks</strong>: Pengubahan bentuk umum sistem persamaan linear dua variabel ke dalam bentuk persamaan matriks AX = B.</td><td>Menyusun matriks koefisien, matriks variabel, dan matriks konstanta dari sistem persamaan linear dua variabel; mengonfirmasi kesetaraan persamaan aljabar dengan persamaan matriks</td></tr><tr><td>P26</td><td>TP-9</td><td><strong>Penyelesaian SPLDV Menggunakan Invers Matriks</strong>: Teknik penyelesaian persamaan matriks AX = B dengan mengalikan kedua ruas dengan invers matriks koefisien (X = A^(-1) B).</td><td>Menyelesaikan sistem persamaan linear dua variabel menggunakan metode invers matriks; menafsirkan keunikan solusi berdasarkan nilai determinan matriks koefisien</td></tr><tr><td>P27</td><td>TP-9</td><td><strong>Penyelesaian SPLDV Kontekstual Pesantren dengan Matriks</strong>: Pemecahan masalah nyata pengelolaan logistik atau perbelanjaan santri yang dimodelkan dalam SPLDV berbasis matriks.</td><td>Menyusun model matematika SPLDV dari narasi kebutuhan santri/pesantren; menghitung penyelesaian himpunan penyelesaian menggunakan pendekatan matriks</td></tr><tr><td>P28</td><td>TP-10</td><td><strong>Konsep Deret Geometri Tak Hingga: Konvergen dan Divergen</strong>: Definisi deret geometri tak hingga, perbedaan deret konvergen (nilai rasio antara -1 dan 1) yang mempunyai jumlah terhingga dan deret divergen yang jumlahnya tak terhingga.</td><td>Menentukan rasio dari suatu deret geometri tak hingga; mengidentifikasi sifat kekonvergenan deret geometri tak hingga berdasarkan rentang nilai rasionya</td></tr><tr><td>P29</td><td>TP-10</td><td><strong>Perhitungan Jumlah Deret Geometri Tak Hingga</strong>: Rumus jumlah deret geometri tak hingga S = a / (1 - r) untuk suku pertama a dan rasio r pada deret konvergen.</td><td>Menghitung jumlah deret geometri tak hingga konvergen jika suku pertama dan rasio diketahui; menentukan suku pertama atau rasio jika jumlah deret tak hingga diketahui</td></tr><tr><td>P30</td><td>TP-10</td><td><strong>Aplikasi Deret Geometri Tak Hingga pada Pantulan Bola</strong>: Pemodelan lintasan total bola yang dijatuhkan dari ketinggian tertentu dan memantul terus-menerus dengan rasio pantulan tetap.</td><td>Menganalisis lintasan bola turun dan naik sebagai deret geometri tak hingga; menghitung panjang seluruh lintasan bola sampai berhenti memantul</td></tr><tr><td>P31</td><td>TP-11</td><td><strong>Konsep Bunga Tunggal dan Bunga Majemuk</strong>: Perbedaan prinsip dasar penghitungan bunga tunggal (berdasarkan modal awal tetap) dan bunga majemuk (bunga berbunga).</td><td>Menjelaskan perbedaan mekanisme pertumbuhan nilai uang pada bunga tunggal dan bunga majemuk; menghitung besaran bunga tunggal dan nilai akhir modal</td></tr><tr><td>P32</td><td>TP-11</td><td><strong>Perhitungan Bunga Majemuk dan Periode Pembungaan</strong>: Rumus nilai akhir bunga majemuk Mn = M0(1 + i)^n, penyesuaian suku bunga terhadap periode pemajemukan bulanan, triwulan, atau tahunan.</td><td>Menghitung nilai akhir modal simpanan dengan sistem bunga majemuk; membandingkan selisih hasil akumulasi dana antara bunga tunggal dan bunga majemuk</td></tr><tr><td>P33</td><td>TP-12</td><td><strong>Konsep Anuitas dan Tabel Angsuran Sederhana</strong>: Pengertian anuitas sebagai pembayaran tetap berkala yang terdiri dari porsi pokok pinjaman dan porsi jasa/margin, serta simulasi tabel pelunasan pinjaman.</td><td>Menjelaskan komponen anuitas yang terdiri dari angsuran pokok dan bunga; menyusun tabel pelunasan pinjaman sederhana untuk beberapa periode angsuran</td></tr><tr><td>P34</td><td>TP-12</td><td><strong>Penyusutan Aset dan Pertumbuhan Ekonomi Pesantren</strong>: Konsep depresiasi/penyusutan nilai buku aset barang inventaris pesantren (metode garis lurus dan persentase tetap) serta estimasi pertumbuhan aset produktif.</td><td>Menghitung nilai sisa aset sarana pesantren setelah mengalami penyusutan selama beberapa periode; memodelkan estimasi nilai ekonomi unit usaha pesantren secara matematis</td></tr><tr><td>P35</td><td>TP-1</td><td><strong>Ujian Sumatif Semester 1</strong>: Evaluasi menyeluruh pencapaian kompetensi fungsi komposisi dan invers, operasi dan penerapan matriks, deret geometri tak hingga, serta matematika keuangan.</td><td>Mengerjakan soal asesmen sumatif semester 1 secara mandiri dan jujur; mengukur ketuntasan kompetensi materi matematika semester ganjil</td></tr><tr><td>P36</td><td>TP-1</td><td><strong>Muraja'ah, Remedial, dan Pembahasan Portofolio Hasil Ujian</strong>: Refleksi pembelajaran semester ganjil, pembahasan soal-soal evaluasi, pendalaman konsep yang masih keliru, dan penguatan tindak lanjut remedial.</td><td>Mengidentifikasi kelemahan pemahaman konsep melalui reviu lembar jawaban; memperbaiki kesalahan pemecahan masalah matematika berdasarkan umpan balik pendidik</td></tr></tbody></table></div></div>
+<h4>KKTP</h4><div class="blok"><p>KKTP Matematika ditetapkan pada <strong>skor 70</strong> untuk Materi Pokok dan kelas 9–12. Untuk Berhitung, ketuntasan bersifat <strong>ganda</strong>: ambang ketepatan dan target waktu pada tabel target di bawah harus terpenuhi <strong>bersamaan</strong> pada drill acuan akhir semester.</p>
+<p><strong>Tabel keputusan</strong> — diterapkan setiap selesai kuis per TP, drill acuan, dan ujian:</p>
+<div class="table-container"><table class="curriculum-table"><thead><tr><th>Hasil</th><th>Keputusan</th><th>Tindak lanjut</th><th>Bukti selesai</th></tr></thead><tbody><tr><td>Materi Pokok / kelas 9–12: skor ≥ 70 dan mampu menyelesaikan soal setara indikator secara mandiri</td><td><strong>Tuntas</strong></td><td>Lanjut ke TP berikutnya</td><td>Tercatat "T" pada Formulir 2</td></tr><tr><td>Skor ≥ 85 pada dua kuis TP berturut-turut, atau drill melampaui target waktu dan ketepatan sekaligus</td><td><strong>Melampaui</strong></td><td>Pengayaan (SOP Intervensi langkah 5)</td><td>Portofolio pengayaan terkumpul</td></tr><tr><td>Berhitung: ambang ketepatan tercapai, target waktu belum tercapai</td><td><strong>Tuntas bersyarat</strong></td><td>Boleh lanjut ke materi berikutnya; wajib drill mandiri terpantau sampai target waktu tercapai</td><td>Drill acuan berikutnya memenuhi target waktu</td></tr><tr><td>Materi Pokok: skor < 70; Berhitung: ketepatan di bawah ambang</td><td><strong>Belum tuntas</strong></td><td>Remedial prasyarat dan latihan bertangga (SOP Intervensi langkah 3–4)</td><td>Asesmen ulang mencapai KKTP</td></tr><tr><td>Pola kesalahan yang sama pada 3 asesmen formatif</td><td><strong>Klinik hitung</strong> (apa pun skornya)</td><td>SOP Intervensi langkah 2</td><td>Kartu klinik hitung ditutup dengan drill pembuktian yang lulus</td></tr></tbody></table></div>
+<p><strong>Tabel target Berhitung per kelas–semester</strong> (drill acuan akhir semester; target antara pada tengah semester = batas waktu pada tabel ini ditambah 25%):</p>
+<div class="table-container"><table class="curriculum-table"><thead><tr><th>Kelas–Semester</th><th>Drill acuan</th><th>Target waktu</th><th>Ambang ketepatan</th></tr></thead><tbody><tr><td>Kelas 7 — Semester 1</td><td>Operasi bilangan bulat (campuran tambah, kurang, kali, bagi)</td><td>20 soal dalam 8 menit</td><td>≥ 85%</td></tr><tr><td>Kelas 7 — Semester 2</td><td>Operasi campuran bilangan rasional dan persen dasar</td><td>15 soal dalam 10 menit</td><td>≥ 85%</td></tr><tr><td>Kelas 8 — Semester 1</td><td>Hitung bentuk aljabar, substitusi, dan hitung Pythagoras</td><td>15 soal dalam 10 menit</td><td>≥ 85%</td></tr><tr><td>Kelas 8 — Semester 2</td><td>Hitung cepat lingkaran dan bangun ruang, statistika dasar, dan pemeliharaan operasi campuran</td><td>15 soal dalam 12 menit</td><td>≥ 90% untuk operasi dasar; ≥ 85% untuk hitung terapan</td></tr></tbody></table></div>
+<p><strong>Aturan tuntas bersyarat</strong>: status ini hanya berlaku pada untaian Berhitung dan hanya bila ambang ketepatan sudah tercapai. Santri berstatus tuntas bersyarat tetap mengikuti tangga materi berikutnya, mengikuti drill mandiri terpantau minimal sekali sepekan, dan statusnya ditinjau pada setiap drill acuan. Bila sampai akhir semester berikutnya target waktu belum juga tercapai, statusnya kembali menjadi <strong>belum tuntas</strong> dan masuk remedial.</p></div>
+</div>
+<div class="semester"><h3>Semester 2</h3>
+<h4>CP</h4><div class="blok"><p><strong>Label:</strong> Fase F (Kelas 11–12)</p>
+<p><strong>Fase F (kelas 11–12)</strong> — Pada akhir Fase F, peserta didik mampu menggunakan fungsi komposisi dan invers, matriks dan determinan, persamaan lingkaran dan garis singgungnya, transformasi geometri dengan matriks, serta program linear untuk pemodelan masalah (domain aljabar dan geometri); memahami dan menerapkan limit, turunan, dan integral fungsi aljabar beserta aplikasinya (domain aljabar — kalkulus dasar); serta menganalisis distribusi peluang dan nilai harapan dan menarik kesimpulan sederhana dari data (domain data dan peluang).</p></div>
+<h4>TP</h4><div class="blok"><ul class="content-list">
+<li><strong>TP-1 · Pertemuan 1–4</strong>: Peserta didik mampu memahami konsep lingkaran analitik, menentukan persamaan lingkaran yang berpusat di (0,0) dan pusat (a,b) dengan jari-jari r, serta mengonversi antara bentuk baku dan bentuk umum persamaan lingkaran.</li>
+<li><strong>TP-2 · Pertemuan 5–6</strong>: Peserta didik mampu menganalisis kedudukan titik dan kedudukan garis terhadap lingkaran secara aljabar maupun geometris.</li>
+<li><strong>TP-3 · Pertemuan 7–8</strong>: Peserta didik mampu menentukan persamaan garis singgung lingkaran yang melalui titik pada lingkaran, garis singgung dengan gradien tertentu, serta garis singgung dari titik di luar lingkaran.</li>
+<li><strong>TP-4 · Pertemuan 9–11</strong>: Peserta didik mampu merepresentasikan dan menerapkan transformasi geometri translasi dan refleksi menggunakan notasi dan operasi matriks.</li>
+<li><strong>TP-5 · Pertemuan 12–14</strong>: Peserta didik mampu merepresentasikan dan menerapkan transformasi geometri rotasi dan dilatasi menggunakan notasi dan operasi matriks.</li>
+<li><strong>TP-6 · Pertemuan 15–16</strong>: Peserta didik mampu menentukan hasil komposisi dua atau lebih transformasi geometri berurutan dengan menggunakan perkalian matriks.</li>
+<li><strong>TP-7 · Pertemuan 17–19</strong>: Peserta didik mampu menganalisis pengaruh transformasi pergeseran (translasi vertikal dan horizontal) terhadap grafik fungsi aljabar.</li>
+<li><strong>TP-8 · Pertemuan 20–22</strong>: Peserta didik mampu menganalisis pengaruh transformasi refleksi dan peregangan (dilatasi vertikal dan horizontal) terhadap grafik fungsi aljabar.</li>
+<li><strong>TP-9 · Pertemuan 23–26</strong>: Peserta didik mampu merumuskan model matematika dari masalah kontekstual program linear yang mencakup fungsi kendala dan fungsi tujuan/objektif.</li>
+<li><strong>TP-10 · Pertemuan 27–31</strong>: Peserta didik mampu menentukan daerah himpunan penyelesaian, titik-titik pojok, dan nilai optimum fungsi tujuan menggunakan metode uji titik pojok dan garis selidik.</li>
+<li><strong>TP-11 · Pertemuan 32–33</strong>: Peserta didik mampu menginterpretasikan solusi optimum program linear dalam pengambilan keputusan nyata, efisiensi alokasi sumber daya, dan wirausaha santri.</li>
+<li><strong>TP-12 · Pertemuan 34–36</strong>: Peserta didik mampu menyelesaikan evaluasi terpadu geometri analitik, transformasi fungsi, dan pemodelan program linear untuk menyelesaikan masalah komprehensif.</li>
+</ul></div>
+<h4>ATP</h4><div class="blok"><ul class="content-list">
+<li><strong>TP-1</strong>: Peserta didik mampu memahami konsep lingkaran analitik, menentukan persamaan lingkaran yang berpusat di (0,0) dan pusat (a,b) dengan jari-jari r, serta mengonversi antara bentuk baku dan bentuk umum persamaan lingkaran.</li>
+<li><strong>TP-2</strong>: Peserta didik mampu menganalisis kedudukan titik dan kedudukan garis terhadap lingkaran secara aljabar maupun geometris.</li>
+<li><strong>TP-3</strong>: Peserta didik mampu menentukan persamaan garis singgung lingkaran yang melalui titik pada lingkaran, garis singgung dengan gradien tertentu, serta garis singgung dari titik di luar lingkaran.</li>
+<li><strong>TP-4</strong>: Peserta didik mampu merepresentasikan dan menerapkan transformasi geometri translasi dan refleksi menggunakan notasi dan operasi matriks.</li>
+<li><strong>TP-5</strong>: Peserta didik mampu merepresentasikan dan menerapkan transformasi geometri rotasi dan dilatasi menggunakan notasi dan operasi matriks.</li>
+<li><strong>TP-6</strong>: Peserta didik mampu menentukan hasil komposisi dua atau lebih transformasi geometri berurutan dengan menggunakan perkalian matriks.</li>
+<li><strong>TP-7</strong>: Peserta didik mampu menganalisis pengaruh transformasi pergeseran (translasi vertikal dan horizontal) terhadap grafik fungsi aljabar.</li>
+<li><strong>TP-8</strong>: Peserta didik mampu menganalisis pengaruh transformasi refleksi dan peregangan (dilatasi vertikal dan horizontal) terhadap grafik fungsi aljabar.</li>
+<li><strong>TP-9</strong>: Peserta didik mampu merumuskan model matematika dari masalah kontekstual program linear yang mencakup fungsi kendala dan fungsi tujuan/objektif.</li>
+<li><strong>TP-10</strong>: Peserta didik mampu menentukan daerah himpunan penyelesaian, titik-titik pojok, dan nilai optimum fungsi tujuan menggunakan metode uji titik pojok dan garis selidik.</li>
+<li><strong>TP-11</strong>: Peserta didik mampu menginterpretasikan solusi optimum program linear dalam pengambilan keputusan nyata, efisiensi alokasi sumber daya, dan wirausaha santri.</li>
+<li><strong>TP-12</strong>: Peserta didik mampu menyelesaikan evaluasi terpadu geometri analitik, transformasi fungsi, dan pemodelan program linear untuk menyelesaikan masalah komprehensif.</li>
+</ul>
+<div class="table-container"><table class="curriculum-table"><thead><tr><th>Pertemuan</th><th>TP</th><th>Materi</th><th>Indikator</th></tr></thead><tbody><tr><td>P1</td><td>TP-1</td><td><strong>Konsep Lingkaran Analitik dan Persamaan Lingkaran Berpusat di (0,0)</strong>: Pengertian lingkaran sebagai lokus titik berjarak tetap terhadap titik pusat, penurunan rumus jarak Euclidean dari titik asal (0,0), dan penentuan persamaan lingkaran berpusat di (0,0) dengan jari-jari r.</td><td>Menjelaskan definisi lingkaran secara analitik berdasarkan konsep jarak titik ke pusat; menentukan persamaan lingkaran yang berpusat di (0,0) dengan jari-jari yang diketahui atau melalui titik tertentu</td></tr><tr><td>P2</td><td>TP-1</td><td><strong>Persamaan Lingkaran Berpusat di (a,b) dengan Jari-jari r</strong>: Penurunan persamaan lingkaran baku berpusat di titik (a,b) dengan jari-jari r melalui formula jarak, serta penyusunan persamaan lingkaran jika diketahui pusat dan jari-jari atau titik yang dilalui.</td><td>Menyusun persamaan lingkaran standar dengan pusat (a,b) dan jari-jari r; menentukan koordinat pusat dan panjang jari-jari dari bentuk baku persamaan lingkaran</td></tr><tr><td>P3</td><td>TP-1</td><td><strong>Bentuk Umum Persamaan Lingkaran</strong>: Penjabaran bentuk baku menjadi bentuk umum x^2 + y^2 + Ax + By + C = 0, kaitan koefisien A, B, C dengan koordinat pusat dan jari-jari lingkaran.</td><td>Mengubah bentuk baku persamaan lingkaran ke bentuk umum; mengidentifikasi nilai parameter A, B, dan C pada bentuk umum persamaan lingkaran</td></tr><tr><td>P4</td><td>TP-1</td><td><strong>Menentukan Pusat dan Jari-jari dari Bentuk Umum Lingkaran</strong>: Teknik melengkapkan kuadrat sempurna dan rumus praktis untuk menghitung koordinat pusat (-A/2, -B/2) serta panjang jari-jari r dari persamaan umum lingkaran.</td><td>Menghitung koordinat pusat lingkaran dari bentuk umum menggunakan rumus praktis atau melengkapkan kuadrat sempurna; menghitung panjang jari-jari lingkaran dari nilai parameter bentuk umum</td></tr><tr><td>P5</td><td>TP-2</td><td><strong>Kedudukan Titik terhadap Lingkaran</strong>: Analisis posisi relatif suatu titik (x1, y1) terhadap lingkaran (di dalam lingkaran, tepat pada lingkaran, atau di luar lingkaran) menggunakan uji nilai kuasa atau substitusi koordinat ke persamaan lingkaran.</td><td>Menentukan kedudukan sebuah titik terhadap lingkaran berpusat di (0,0) maupun (a,b) dengan substitusi aljabar; membedakan kondisi titik di dalam, pada, dan di luar lingkaran berdasarkan perbandingan kuadrat jarak dengan kuadrat jari-jari</td></tr><tr><td>P6</td><td>TP-2</td><td><strong>Kedudukan Garis terhadap Lingkaran</strong>: Hubungan geometris antara garis lurus y = mx + c dan lingkaran (memotong di dua titik, menyinggung di satu titik, atau tidak memotong/di luar lingkaran) menggunakan pendekatan nilai diskriminan persamaan kuadrat persekutuan.</td><td>Menyusun persamaan kuadrat persekutuan antara persamaan garis dan lingkaran; menganalisis kedudukan garis terhadap lingkaran berdasarkan nilai diskriminan (D > 0, D = 0, D < 0)</td></tr><tr><td>P7</td><td>TP-3</td><td><strong>Persamaan Garis Singgung Melalui Titik pada Lingkaran</strong>: Penurunan dan penerapan rumus garis singgung lingkaran (metode bagi adil) untuk titik singgung (x1, y1) yang terletak tepat pada lingkaran berpusat di (0,0) dan pusat (a,b).</td><td>Menentukan persamaan garis singgung lingkaran berpusat di (0,0) melalui titik singgung pada lingkaran; menentukan persamaan garis singgung lingkaran berpusat di (a,b) melalui titik singgung pada lingkaran menggunakan metode bagi adil</td></tr><tr><td>P8</td><td>TP-3</td><td><strong>Persamaan Garis Singgung Lingkaran dengan Gradien Tertentu dan Garis Singgung dari Titik Luar</strong>: Penentuan garis singgung lingkaran jika diketahui nilai gradien kemiringan garis m, serta pengenalan konsep garis singgung yang ditarik dari titik di luar lingkaran.</td><td>Menentukan persamaan garis singgung lingkaran dengan gradien m yang diketahui; menganalisis garis singgung lingkaran yang ditarik dari titik di luar lingkaran secara analitik</td></tr><tr><td>P9</td><td>TP-4</td><td><strong>Representasi Transformasi Translasi dengan Matriks Kolom</strong>: Konsep pergeseran objek geometris pada bidang Cartesius dan representasinya sebagai penjumlahan matriks koordinat dengan matriks translasi (vektor geser).</td><td>Menjelaskan konsep translasi titik dan bangun geometri pada bidang koordinat; menghitung koordinat bayangan hasil translasi menggunakan operasi penambahan matriks kolom</td></tr><tr><td>P10</td><td>TP-4</td><td><strong>Representasi Matriks Refleksi terhadap Sumbu Koordinat dan Titik Asal</strong>: Matriks transformasi pencerminan terhadap sumbu-X, sumbu-Y, dan titik asal (0,0), serta penentuan bayangan titik dan garis.</td><td>Mengidentifikasi matriks transformasi pencerminan terhadap sumbu-X, sumbu-Y, dan titik asal; menentukan koordinat bayangan titik hasil refleksi terhadap sumbu koordinat menggunakan perkalian matriks</td></tr><tr><td>P11</td><td>TP-4</td><td><strong>Representasi Matriks Refleksi terhadap Garis y = x dan Garis y = -x</strong>: Matriks transformasi pencerminan terhadap garis diagonal y = x dan y = -x, sifat-sifat geometri bayangan, dan penerapannya pada persamaan garis lurus.</td><td>Menyusun matriks transformasi refleksi terhadap garis y = x dan y = -x; menentukan bayangan titik dan persamaan garis hasil refleksi terhadap garis diagonal menggunakan perkalian matriks</td></tr><tr><td>P12</td><td>TP-5</td><td><strong>Representasi Matriks Rotasi terhadap Titik Pusat (0,0)</strong>: Matriks rotasi sebesar sudut putar theta berlawanan atau searah jarum jam terhadap titik asal (0,0), kaitan nilai sinus dan kosinus sudut istimewa pada elemen matriks rotasi.</td><td>Menyusun matriks rotasi berpusat di (0,0) untuk sudut-sudut istimewa (90, 180, 270 derajat); menghitung koordinat bayangan titik hasil rotasi terhadap titik asal menggunakan perkalian matriks</td></tr><tr><td>P13</td><td>TP-5</td><td><strong>Rotasi Objek Geometris terhadap Titik Pusat Sembarang (a,b)</strong>: Teknik pergeseran koordinat acuan ke titik pusat (a,b), penerapan matriks rotasi sudut theta, dan pengembalian ke koordinat asal.</td><td>Menjelaskan alur komputasi rotasi dengan pusat sembarang (a,b); menentukan koordinat bayangan titik hasil rotasi dengan pusat (a,b) dan sudut putar tertentu</td></tr><tr><td>P14</td><td>TP-5</td><td><strong>Representasi Matriks Dilatasi terhadap Pusat (0,0) dan Pusat (a,b)</strong>: Konsep faktor perbesaran atau perkecilan skala k, matriks dilatasi dengan pusat asal (0,0), serta perluasannya untuk titik pusat dilatasi (a,b).</td><td>Menentukan matriks transformasi dilatasi dengan faktor skala k berpusat di (0,0); menghitung bayangan titik dan bangun datar akibat dilatasi terhadap pusat (0,0) maupun pusat (a,b)</td></tr><tr><td>P15</td><td>TP-6</td><td><strong>Komposisi Dua Transformasi Berurutan Menggunakan Perkalian Matriks</strong>: Konsep urutan transformasi g dilanjutkan f yang dinyatakan sebagai perkalian matriks tunggal M = M2 x M1, serta sifat non-komutatif pada komposisi transformasi.</td><td>Menyusun matriks gabungan dari dua transformasi geometri berurutan melalui perkalian matriks; menentukan koordinat bayangan objek hasil komposisi dua transformasi secara efisien</td></tr><tr><td>P16</td><td>TP-6</td><td><strong>Penerapan Matriks Transformasi Geometri pada Persamaan Kurva dan Garis</strong>: Menentukan persamaan bayangan kurva (garis lurus, parabola, atau lingkaran) akibat transformasi tunggal maupun komposisi matriks menggunakan metode substitusi matriks invers.</td><td>Menentukan bayangan persamaan garis lurus hasil transformasi matriks; menentukan bayangan persamaan lingkaran atau kurva aljabar akibat komposisi transformasi matriks</td></tr><tr><td>P17</td><td>TP-7</td><td><strong>Transformasi Fungsi: Pergeseran Vertikal Grafik y = f(x) + c dan y = f(x) - c</strong>: Konsep translasi vertikal grafik fungsi aljabar (linear, kuadrat, dan nilai mutlak), perubahan nilai keluaran fungsi, serta pergeseran titik puncak dan titik potong sumbu.</td><td>Menganalisis efek penambahan atau pengurangan konstanta di luar fungsi terhadap grafik y = f(x); menggambar sketsa grafik fungsi yang mengalami pergeseran ke atas atau ke bawah</td></tr><tr><td>P18</td><td>TP-7</td><td><strong>Transformasi Fungsi: Pergeseran Horizontal Grafik y = f(x - a) dan y = f(x + a)</strong>: Konsep translasi horizontal grafik fungsi aljabar ke arah kanan dan kiri, perubahan domain masukan, serta identifikasi pergeseran sumbu simetri.</td><td>Menjelaskan perbedaan pergeseran ke arah kanan dan kiri pada fungsi y = f(x - a) dan y = f(x + a); menentukan koordinat titik-titik kunci setelah grafik digeser secara horizontal</td></tr><tr><td>P19</td><td>TP-7</td><td><strong>Kombinasi Pergeseran Vertikal dan Horizontal Grafik y = f(x - a) + b</strong>: Penerapan translasi gabungan horizontal dan vertikal pada berbagai kurva fungsi aljabar serta interpretasi persamaan kurva hasil pergeseran.</td><td>Menyusun persamaan fungsi hasil gabungan pergeseran horizontal dan vertikal dari fungsi dasar; mensketsakan grafik fungsi hasil kombinasi translasi vertikal dan horizontal</td></tr><tr><td>P20</td><td>TP-8</td><td><strong>Transformasi Fungsi: Refleksi Vertikal y = -f(x) dan Refleksi Horizontal y = f(-x)</strong>: Konsep pencerminan grafik terhadap sumbu-X (perubahan tanda nilai fungsi) dan terhadap sumbu-Y (perubahan tanda nilai variabel masukan), serta perbandingannya pada fungsi kuadrat dan kubik.</td><td>Membedakan dampak visual dan aljabar antara refleksi vertikal y = -f(x) dan refleksi horizontal y = f(-x); menentukan rumus dan sketsa grafik fungsi setelah direfleksikan terhadap sumbu koordinat</td></tr><tr><td>P21</td><td>TP-8</td><td><strong>Transformasi Fungsi: Peregangan dan Pemampatan Vertikal y = k * f(x)</strong>: Pengaruh faktor pengali k terhadap kelentingan grafik fungsi (peregangan vertikal jika k > 1 dan pemampatan vertikal jika 0 < k < 1), serta pengaruh tanda negatif terhadap orientasi grafik.</td><td>Menganalisis perubahan kecuraman dan kelentingan kurva akibat peregangan atau pemampatan vertikal; menentukan persamaan fungsi baru hasil peregangan vertikal dengan faktor pengali k</td></tr><tr><td>P22</td><td>TP-8</td><td><strong>Analisis Terpadu Transformasi Fungsi Bentuk Umum y = k * f(x - a) + b</strong>: Sintesis urutan transformasi (peregangan, refleksi, dan pergeseran) pada fungsi aljabar, membaca grafik hasil transformasi, serta menentukan aturan fungsinya.</td><td>Mengidentifikasi urutan langkah transformasi yang dialami oleh grafik fungsi dasar menjadi grafik baru; menyusun persamaan fungsi aljabar dari tampilan grafik kurva hasil serangkaian transformasi</td></tr><tr><td>P23</td><td>TP-9</td><td><strong>Konsep Pertidaksamaan Linear Dua Variabel dan Daerah Bersih</strong>: Definisi sistem pertidaksamaan linear dua variabel (SPtLDV), aturan garis batas tegas dan putus-putus, serta teknik penentuan daerah himpunan penyelesaian (DHP) dengan metode arsiran/daerah bersih.</td><td>Menentukan daerah penyelesaian dari pertidaksamaan linear dua variabel pada bidang Cartesius; menggambar daerah himpunan penyelesaian sistem pertidaksamaan linear dua variabel dengan kaidah daerah bersih</td></tr><tr><td>P24</td><td>TP-9</td><td><strong>Model Matematika Program Linear: Mengidentifikasi Variabel Keputusan dan Besaran Masalah</strong>: Langkah awal pemodelan masalah kontekstual nyata (produksi, pengemasan, dan perdagangan), pemilihan variabel keputusan x dan y, serta syarat non-negatif (x >= 0, y >= 0).</td><td>Mengidentifikasi variabel keputusan x dan y dari narasi masalah kehidupan sehari-hari; menetapkan syarat batas non-negatif yang relevan dengan konteks nyata</td></tr><tr><td>P25</td><td>TP-9</td><td><strong>Model Matematika Program Linear: Merumuskan Fungsi Kendala dari Masalah Nyata</strong>: Menerjemahkan pembatasan bahan baku, waktu kerja, kapasitas gudang, atau anggaran modal dari narasi masalah menjadi sistem pertidaksamaan linear kendala.</td><td>Menyusun tabel alokasi data dari permasalahan kontekstual; menerjemahkan kendala ketersediaan sumber daya menjadi sistem pertidaksamaan linear dua variabel</td></tr><tr><td>P26</td><td>TP-9</td><td><strong>Fungsi Tujuan/Objektif: Merumuskan Fungsi Keuntungan dan Biaya Z = ax + by</strong>: Pengertian fungsi objektif, identifikasi komponen keuntungan satuan atau biaya per unit, dan penyusunan fungsi sasaran maksimum atau minimum Z = ax + by.</td><td>Membedakan antara fungsi kendala dan fungsi tujuan dalam pemodelan program linear; merumuskan persamaan fungsi objektif Z = ax + by untuk sasaran maksimasi laba atau minimasi biaya</td></tr><tr><td>P27</td><td>TP-10</td><td><strong>Menggambar Daerah Himpunan Penyelesaian (DHP) Sistem Kendala</strong>: Menggambar garis-garis pembatas pada bidang koordinat Cartesius, menguji titik selidik (0,0), dan menentukan irisan daerah layak (daerah himpunan penyelesaian tertutup/terbuka).</td><td>Menggambar semua garis batas kendala secara presisi pada bidang koordinat; menentukan daerah himpunan penyelesaian (DHP) yang memenuhi seluruh sistem pertidaksamaan kendala</td></tr><tr><td>P28</td><td>TP-10</td><td><strong>Menentukan Titik-Titik Pojok Daerah Himpunan Penyelesaian</strong>: Mengidentifikasi titik sudut (verteks) daerah layak melalui titik potong sumbu koordinat dan penyelesaian sistem persamaan linear dua variabel menggunakan eliminasi/substitusi.</td><td>Mengidentifikasi titik-titik pojok pembatas daerah himpunan penyelesaian; menghitung koordinat titik potong antar dua garis batas menggunakan metode eliminasi atau substitusi aljabar</td></tr><tr><td>P29</td><td>TP-10</td><td><strong>Uji Titik Pojok untuk Menentukan Nilai Optimum Maksimum</strong>: Prosedur substitusi koordinat seluruh titik pojok daerah penyelesaian ke dalam fungsi objektif Z = ax + by untuk menentukan nilai laba maksimum dan titik penyelesaian optimal.</td><td>Menghitung nilai fungsi tujuan pada setiap titik pojok DHP; menentukan titik pojok yang menghasilkan nilai optimum maksimum beserta nilai maksimumnya</td></tr><tr><td>P30</td><td>TP-10</td><td><strong>Uji Titik Pojok untuk Menentukan Nilai Optimum Minimum</strong>: Prosedur uji titik sudut pada daerah himpunan penyelesaian untuk masalah pengeluaran bahan minimum, efisiensi biaya logistik, atau kebutuhan nutrisi minimum.</td><td>Menghitung nilai fungsi tujuan untuk kasus minimasi biaya atau konsumsi sumber daya; menentukan titik pojok yang menghasilkan nilai optimum minimum beserta nilai minimumnya</td></tr><tr><td>P31</td><td>TP-10</td><td><strong>Metode Garis Selidik ax + by = k untuk Menentukan Nilai Optimum</strong>: Pengenalan konsep garis selidik dengan gradien tetap m = -a/b, teknik menggeser garis selidik sejajar melintasi DHP untuk mengonfirmasi titik optimum tanpa menguji seluruh titik satu per satu.</td><td>Membuat persamaan garis selidik awal ax + by = k; menentukan titik optimum terjauh atau terdekat dengan menggeser garis selidik sejajar pada daerah layak</td></tr><tr><td>P32</td><td>TP-11</td><td><strong>Interpretasi Solusi Optimum Program Linear untuk Efisiensi Produksi</strong>: Menganalisis makna nilai optimal x dan y dalam dunia nyata, sisa kapasitas bahan baku/sumber daya yang tidak terpakai (slack variable kualitatif), dan pembulatan solusi bulat.</td><td>Menginterpretasikan pasangan nilai optimum (x, y) ke dalam konteks jumlah barang yang harus diproduksi; menganalisis pemanfaatan sumber daya dan efisiensi produksi berdasarkan solusi optimum yang diperoleh</td></tr><tr><td>P33</td><td>TP-11</td><td><strong>Penerapan Program Linear dalam Pengelolaan Usaha Mandiri dan Koperasi Santri</strong>: Studi kasus pemodelan program linear pada unit usaha ekonomi pesantren (pengelolaan kantin, pembuatan roti, peternakan, konveksi seragam) untuk merancang keputusan operasional berbasis data.</td><td>Menyusun model program linear utuh dari studi kasus unit usaha mandiri atau koperasi madrasah; memberikan rekomendasi keputusan manajerial yang optimal berdasarkan hasil perhitungan program linear</td></tr><tr><td>P34</td><td>TP-12</td><td><strong>Evaluasi Terpadu Geometri Analitik, Transformasi, dan Pemodelan Program Linear</strong>: Penyelesaian latihan soal komprehensif yang mengintegrasikan persamaan lingkaran, transformasi geometri dengan matriks, transformasi fungsi aljabar, dan optimasi program linear.</td><td>Menyelesaikan soal gabungan konsep geometri analitik dan matriks transformasi; memecahkan masalah kontekstual terintegrasi yang melibatkan transformasi fungsi dan pemodelan program linear</td></tr><tr><td>P35</td><td>TP-12</td><td><strong>Ujian Sumatif Semester 2</strong>: Asesmen sumatif semester 2 untuk mengukur ketercapaian seluruh tujuan pembelajaran pada ranah persamaan lingkaran, transformasi geometri matriks, transformasi fungsi, dan program linear.</td><td>Mengerjakan instrumen asesmen sumatif semester 2 secara mandiri, jujur, dan terukur; menunjukkan penguasaan menyeluruh atas kompetensi analitik, geometris, dan pemodelan aljabar matematika</td></tr><tr><td>P36</td><td>TP-12</td><td><strong>Muraja'ah, Remedial, dan Pembahasan Portofolio Hasil Ujian</strong>: Refleksi pembelajaran semester 2, pembahasan butir soal asesmen yang paling banyak mengalami miskonsepsi, perbaikan capaian kompetensi bagi peserta didik remedial, dan penyusunan portofolio capaian belajar.</td><td>Mengidentifikasi letak kesalahan atau kelemahan konsep pribadi berdasarkan hasil asesmen sumatif; memperbaiki pemahaman konsep yang belum tuntas melalui pembahasan terarah dan tugas perbaikan</td></tr></tbody></table></div></div>
+<h4>KKTP</h4><div class="blok"><p>KKTP Matematika ditetapkan pada <strong>skor 70</strong> untuk Materi Pokok dan kelas 9–12. Untuk Berhitung, ketuntasan bersifat <strong>ganda</strong>: ambang ketepatan dan target waktu pada tabel target di bawah harus terpenuhi <strong>bersamaan</strong> pada drill acuan akhir semester.</p>
+<p><strong>Tabel keputusan</strong> — diterapkan setiap selesai kuis per TP, drill acuan, dan ujian:</p>
+<div class="table-container"><table class="curriculum-table"><thead><tr><th>Hasil</th><th>Keputusan</th><th>Tindak lanjut</th><th>Bukti selesai</th></tr></thead><tbody><tr><td>Materi Pokok / kelas 9–12: skor ≥ 70 dan mampu menyelesaikan soal setara indikator secara mandiri</td><td><strong>Tuntas</strong></td><td>Lanjut ke TP berikutnya</td><td>Tercatat "T" pada Formulir 2</td></tr><tr><td>Skor ≥ 85 pada dua kuis TP berturut-turut, atau drill melampaui target waktu dan ketepatan sekaligus</td><td><strong>Melampaui</strong></td><td>Pengayaan (SOP Intervensi langkah 5)</td><td>Portofolio pengayaan terkumpul</td></tr><tr><td>Berhitung: ambang ketepatan tercapai, target waktu belum tercapai</td><td><strong>Tuntas bersyarat</strong></td><td>Boleh lanjut ke materi berikutnya; wajib drill mandiri terpantau sampai target waktu tercapai</td><td>Drill acuan berikutnya memenuhi target waktu</td></tr><tr><td>Materi Pokok: skor < 70; Berhitung: ketepatan di bawah ambang</td><td><strong>Belum tuntas</strong></td><td>Remedial prasyarat dan latihan bertangga (SOP Intervensi langkah 3–4)</td><td>Asesmen ulang mencapai KKTP</td></tr><tr><td>Pola kesalahan yang sama pada 3 asesmen formatif</td><td><strong>Klinik hitung</strong> (apa pun skornya)</td><td>SOP Intervensi langkah 2</td><td>Kartu klinik hitung ditutup dengan drill pembuktian yang lulus</td></tr></tbody></table></div>
+<p><strong>Tabel target Berhitung per kelas–semester</strong> (drill acuan akhir semester; target antara pada tengah semester = batas waktu pada tabel ini ditambah 25%):</p>
+<div class="table-container"><table class="curriculum-table"><thead><tr><th>Kelas–Semester</th><th>Drill acuan</th><th>Target waktu</th><th>Ambang ketepatan</th></tr></thead><tbody><tr><td>Kelas 7 — Semester 1</td><td>Operasi bilangan bulat (campuran tambah, kurang, kali, bagi)</td><td>20 soal dalam 8 menit</td><td>≥ 85%</td></tr><tr><td>Kelas 7 — Semester 2</td><td>Operasi campuran bilangan rasional dan persen dasar</td><td>15 soal dalam 10 menit</td><td>≥ 85%</td></tr><tr><td>Kelas 8 — Semester 1</td><td>Hitung bentuk aljabar, substitusi, dan hitung Pythagoras</td><td>15 soal dalam 10 menit</td><td>≥ 85%</td></tr><tr><td>Kelas 8 — Semester 2</td><td>Hitung cepat lingkaran dan bangun ruang, statistika dasar, dan pemeliharaan operasi campuran</td><td>15 soal dalam 12 menit</td><td>≥ 90% untuk operasi dasar; ≥ 85% untuk hitung terapan</td></tr></tbody></table></div>
+<p><strong>Aturan tuntas bersyarat</strong>: status ini hanya berlaku pada untaian Berhitung dan hanya bila ambang ketepatan sudah tercapai. Santri berstatus tuntas bersyarat tetap mengikuti tangga materi berikutnya, mengikuti drill mandiri terpantau minimal sekali sepekan, dan statusnya ditinjau pada setiap drill acuan. Bila sampai akhir semester berikutnya target waktu belum juga tercapai, statusnya kembali menjadi <strong>belum tuntas</strong> dan masuk remedial.</p></div>
+</div>
+</div>
+</main>
+</div>
+
+</body>
+</html>
